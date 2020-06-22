@@ -6,7 +6,7 @@ categories: misc
 
 {% include lib/mathjax.html %}
 ## Brief Overview
-The aim of this notebook is to walk users through the commonly used features in building regression and binary classification models.
+The aim of this blog is to walk users through the commonly used features in building regression and binary classification models.
 
 For different types of problem statements and modelling techniques, the choice of variables and feature selection varies.
 
@@ -161,7 +161,7 @@ In the next tutorial, I  plan to cover the implementation of different types of 
 
 
 
-We would appreciate your feedback, suggestion on how we can improve this.
+I would appreciate your feedback, suggestion on how I can improve this.
 
 #### Email id -satwantsingh201@gmail.com
 
