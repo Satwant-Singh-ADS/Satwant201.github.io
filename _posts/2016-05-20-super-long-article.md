@@ -41,7 +41,7 @@ Risk Formula : ((x.Errors_for_category+0.5)/(x.Claims_for_category+(0.5/(Error_p
 
 $$ {DocA}_{risk}  :(10+0.5)/(100+(0.5/(11/102) $$ = 0.1003
 
-\[{DocB}_{risk}  :(1+0.5)/(2+(0.5/(11/102)\] = 0.226
+$$ {DocB}_{risk}  :(1+0.5)/(2+(0.5/(11/102) $$ = 0.226
 
 If you noticed, risk value for A was not affected much but risk for B was reduced significantly and at same time was still higher than A. This way, we not only smoothen the risk value but also carry the essence of the actual risk
 
@@ -66,15 +66,6 @@ $$ {Risk}_{gen} : {Error}_{count}/{Observations} $$
 Entropy is a measure of uncertainty or randomness associated with a feature. A more stable system would have Zero Entropy whereas a highy volatile system would have a very high entropy value.
 
 $$ Entropy = \biggl(\sum_{i=1}^{n}x_{i}/w*log(w/x_{i})\biggr) $$
-
-$$Entropy = \biggl(\sum_{i=1}^{n}x_{i}/w*log(w/x_{i})\biggr)$$
-
-\[Entropy = \biggl(\sum_{i=1}^{n}x_{i}/w*log(w/x_{i})\biggr)\]
-
-{% raw %}
-  $$ a^2 + b^2 = c^2 $$ --> note that all equations between these tags will not need escaping! 
- {% endraw %}
-
 
 where n is maximum number of child column values across which occured for a parent column.
 
@@ -116,7 +107,7 @@ Here, Jan- Mar data($ { Red Shaded } $) is used to calcuate lookback features fo
 It is a technique used to emphasize variation and bring out strong patterns in a dataset. It's often used to make data easy to explore and visualize
 
 
-<img src="https://raw.githubusercontent.com/Satwant201/Feature_Engineering_kit/master/Capture2.PNG" width="400" height="300" title="Dimension reduction using PCA" align="center"/>
+<img src="https://raw.githubusercontent.com/Satwant201/Feature_Engineering_kit/master/Capture2.PNG" width="500" height="350" title="Dimension reduction using PCA" align="center"/>
 
 
 In the above image, we tranform a 3D data into 2D data using PCA
@@ -143,7 +134,7 @@ Below, you can find the comparison of the AUC plot for both the models. Even aft
 
 
 
-<img src="https://github.optum.com/raw/ssing339/PCR_ENI_1_codes/master/Capture3.PNG" width="450" height="300" alt="# Months lookback Timeline" title="Lookback Intuition" align="center"/>
+<img src="https://github.optum.com/raw/ssing339/PCR_ENI_1_codes/master/Capture3.PNG" width="550" height="350" alt="# Months lookback Timeline" title="Lookback Intuition" align="centre"/>
 
 
 
