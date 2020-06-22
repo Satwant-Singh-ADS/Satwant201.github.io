@@ -13,7 +13,7 @@ For Regression based models, we might be interested in building aggregated views
 
 For classification based models, we might be interested in introducing event based features to help the model focus on variables which might be helpful in explaining maximum variance and patterns in the data
 
-<img src="https://www.vidora.com/wp-content/uploads/2017/10/Screen-Shot-2017-10-16-at-6.33.28-PM.png" width="600" height="300" title="Feature Engineering" align="center"/>
+<img src="https://www.vidora.com/wp-content/uploads/2017/10/Screen-Shot-2017-10-16-at-6.33.28-PM.png" width="400" height="200" title="Feature Engineering" align="center"/>
 
 ## Types of Features
 
@@ -57,7 +57,16 @@ $$ {Risk}_{gen} : {Error}_{count}/{Observations} $$
 ### Entropy
 Entropy is a measure of uncertainty or randomness associated with a feature. A more stable system would have Zero Entropy whereas a highy volatile system would have a very high entropy value.
 
+$$ Entropy = \biggl(\sum_{i=1}^{n}x_{i}/w*log(w/x_{i})\biggr) $$
+
 $$Entropy = \biggl(\sum_{i=1}^{n}x_{i}/w*log(w/x_{i})\biggr)$$
+
+\[Entropy = \biggl(\sum_{i=1}^{n}x_{i}/w*log(w/x_{i})\biggr) \]
+
+{% raw %}
+  $$a^2 + b^2 = c^2$$ --> note that all equations between these tags will not need escaping! 
+ {% endraw %}
+
 
 where n is maximum number of child column values across which occured for a parent column.
 
