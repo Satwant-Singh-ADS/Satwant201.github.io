@@ -14,17 +14,9 @@ For Regression based models, we might be interested in building aggregated views
 
 For classification based models, we might be interested in introducing event based features to help the model focus on variables which might be helpful in explaining maximum variance and patterns in the data
 
-<img src="https://www.vidora.com/wp-content/uploads/2017/10/Screen-Shot-2017-10-16-at-6.33.28-PM.png" width="700" height="300" title="Feature Engineering" align="center"/>
-
-
-
-
 <p align="center">
   <img width="600" height="200" src="https://www.vidora.com/wp-content/uploads/2017/10/Screen-Shot-2017-10-16-at-6.33.28-PM.png">
 </p>
-
-
-
 
 
 
@@ -95,10 +87,9 @@ It is generally recommended to impute missing values with the overall median val
 ### Lookback
 In most of our projects, we tend to compute certain aggregations like mean, max,min,count of certain continuous features/columns. Lookback here means that we would be using a certain history data in a dynamic fashion to calculate these aggregations
 
-
-
-<img src="https://raw.githubusercontent.com/Satwant201/Feature_Engineering_kit/master/Capture.PNG" width="250" height="250" alt="# Months lookback Timeline" title="Lookback Intuition" align="center"/>
-
+<p align="center">
+  <img width="400" height="300" src="https://raw.githubusercontent.com/Satwant201/Feature_Engineering_kit/master/Capture.PNG">
+</p>
 
 
 In the above trend chart, for calculating count of claims for december month, I would use Sept - Nov Data and so on.
@@ -112,7 +103,9 @@ Here, Jan- Mar data($ { Red Shaded } $) is used to calcuate lookback features fo
 It is a technique used to emphasize variation and bring out strong patterns in a dataset. It's often used to make data easy to explore and visualize
 
 
-<img src="https://raw.githubusercontent.com/Satwant201/Feature_Engineering_kit/master/Capture2.PNG" width="500" height="350" title="Dimension reduction using PCA" align="center"/>
+<p align="center">
+  <img width="500" height="350" src="https://raw.githubusercontent.com/Satwant201/Feature_Engineering_kit/master/Capture2.PNG">
+</p>
 
 
 In the above image, we tranform a 3D data into 2D data using PCA
@@ -139,7 +132,9 @@ Below, you can find the comparison of the AUC plot for both the models. Even aft
 
 
 
-<img src="https://github.optum.com/raw/ssing339/PCR_ENI_1_codes/master/Capture3.PNG" width="550" height="350" alt="# Months lookback Timeline" title="Lookback Intuition" align="centre"/>
+<p align="center">
+  <img width="500" height="350" src="https://github.optum.com/raw/ssing339/PCR_ENI_1_codes/master/Capture3.PNG">
+</p>
 
 
 
