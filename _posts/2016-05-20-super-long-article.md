@@ -88,12 +88,12 @@ It is generally recommended to impute missing values with the overall median val
 In most of our projects, we tend to compute certain aggregations like mean, max,min,count of certain continuous features/columns. Lookback here means that we would be using a certain history data in a dynamic fashion to calculate these aggregations
 
 <p align="center">
-  <img width="400" height="300" src="https://raw.githubusercontent.com/Satwant201/Feature_Engineering_kit/master/Capture.PNG">
+  <img width="400" height="400" src="https://raw.githubusercontent.com/Satwant201/Feature_Engineering_kit/master/Capture.PNG">
 </p>
 
 
 In the above trend chart, for calculating count of claims for december month, I would use Sept - Nov Data and so on.
-Here, Jan- Mar data($ { Red Shaded } $) is used to calcuate lookback features for april month. Since, there are not enough observations for calculating lookback for these 3 months, we would remove this data while model development
+Here, Jan- Mar data($$ { Red Shaded } $$) is used to calcuate lookback features for april month. Since, there are not enough observations for calculating lookback for these 3 months, we would remove this data while model development
 
 
 
