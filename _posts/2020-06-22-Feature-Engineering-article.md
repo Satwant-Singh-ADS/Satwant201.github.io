@@ -133,7 +133,7 @@ Below, you can find the comparison of the AUC plot for both the models. Even aft
 
 
 <p align="center">
-  <img width="600" height="400" src="https://github.optum.com/raw/ssing339/PCR_ENI_1_codes/master/Capture3.PNG">
+  <img width="600" height="350" src="https://github.optum.com/raw/ssing339/PCR_ENI_1_codes/master/Capture3.PNG">
 </p>
 
 
