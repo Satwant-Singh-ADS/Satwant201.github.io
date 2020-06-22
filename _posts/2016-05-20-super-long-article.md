@@ -13,7 +13,14 @@ For Regression based models, we might be interested in building aggregated views
 
 For classification based models, we might be interested in introducing event based features to help the model focus on variables which might be helpful in explaining maximum variance and patterns in the data
 
-<img src="https://www.vidora.com/wp-content/uploads/2017/10/Screen-Shot-2017-10-16-at-6.33.28-PM.png" width="500" height="250" title="Feature Engineering" align="right"/>
+<img src="https://www.vidora.com/wp-content/uploads/2017/10/Screen-Shot-2017-10-16-at-6.33.28-PM.png" width="500" height="300" title="Feature Engineering" align="center"/>
+
+
+
+
+
+
+
 
 ## Types of Features
 
@@ -90,7 +97,12 @@ It is generally recommended to impute missing values with the overall median val
 
 ### Lookback
 In most of our projects, we tend to compute certain aggregations like mean, max,min,count of certain continuous features/columns. Lookback here means that we would be using a certain history data in a dynamic fashion to calculate these aggregations
+
+
+
 <img src="https://raw.githubusercontent.com/Satwant201/Feature_Engineering_kit/master/Capture.PNG" width="250" height="250" alt="# Months lookback Timeline" title="Lookback Intuition" align="center"/>
+
+
 
 In the above trend chart, for calculating count of claims for december month, I would use Sept - Nov Data and so on.
 Here, Jan- Mar data($ { Red Shaded } $) is used to calcuate lookback features for april month. Since, there are not enough observations for calculating lookback for these 3 months, we would remove this data while model development
@@ -102,7 +114,9 @@ Here, Jan- Mar data($ { Red Shaded } $) is used to calcuate lookback features fo
 
 It is a technique used to emphasize variation and bring out strong patterns in a dataset. It's often used to make data easy to explore and visualize
 
-<img src="https://raw.githubusercontent.com/Satwant201/Feature_Engineering_kit/master/Capture2.PNG" width="400" height="400" title="Dimension reduction using PCA" align="center"/>
+
+<img src="https://raw.githubusercontent.com/Satwant201/Feature_Engineering_kit/master/Capture2.PNG" width="400" height="300" title="Dimension reduction using PCA" align="center"/>
+
 
 In the above image, we tranform a 3D data into 2D data using PCA
 
@@ -126,7 +140,11 @@ Then, i normalized my dataset and built the same model with same hyper-parameter
 
 Below, you can find the comparison of the AUC plot for both the models. Even after getting rid of 30 Features, we suffered a performance loss of only 1.5%
 
+
+
 <img src="https://github.optum.com/raw/ssing339/PCR_ENI_1_codes/master/Capture3.PNG" width="450" height="300" alt="# Months lookback Timeline" title="Lookback Intuition" align="center"/>
+
+
 
 
 
