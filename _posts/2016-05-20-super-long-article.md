@@ -33,7 +33,7 @@ Risk Formula : ((x.Errors_for_category+0.5)/(x.Claims_for_category+(0.5/(Error_p
 
 $$ {DocA}_{risk}  :(10+0.5)/(100+(0.5/(11/102) $$ = 0.1003
 
-/[{DocB}_{risk}  :(1+0.5)/(2+(0.5/(11/102)/] = 0.226
+\[{DocB}_{risk}  :(1+0.5)/(2+(0.5/(11/102)\] = 0.226
 
 If you noticed, risk value for A was not affected much but risk for B was reduced significantly and at same time was still higher than A. This way, we not only smoothen the risk value but also carry the essence of the actual risk
 
