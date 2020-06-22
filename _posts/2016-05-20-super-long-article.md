@@ -19,6 +19,11 @@ For classification based models, we might be interested in introducing event bas
 
 
 
+<p align="center">
+  <img width="600" height="200" src="https://www.vidora.com/wp-content/uploads/2017/10/Screen-Shot-2017-10-16-at-6.33.28-PM.png">
+</p>
+
+
 
 
 
