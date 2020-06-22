@@ -141,8 +141,7 @@ Below, you can find the comparison of the AUC plot for both the models. Even aft
 
 
 ##### Still not convinced with what wonders PCA can do!!!!
-
-Please visit https://projector.tensorflow.org/ and see how PCA helps in visualizing a 50+ dimension data(Word Embeddings) in 3d
+Please visit [Tensorflow Projctor](https://projector.tensorflow.org/) and see how PCA helps in visualizing a 50+ dimension data(Word Embeddings) in 3d
 
 
 
