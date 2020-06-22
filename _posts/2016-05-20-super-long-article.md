@@ -4,6 +4,7 @@ title: "Feature Engineering Guide"
 categories: misc
 ---
 
+{% include lib/mathjax.html %}
 ## Brief Overview
 The aim of this notebook is to walk users through the commonly used features in building regression and binary classification models.
 
