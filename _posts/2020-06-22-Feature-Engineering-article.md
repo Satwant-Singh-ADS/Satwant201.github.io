@@ -35,15 +35,14 @@ Lets say we have 2 doctors
 There should be some smoothening factor associated while calculating risk which should consider entire population while computing risk
 
 Lets introduce a new formula for calculating Risk
-$$ {Risk} : (({Errors}_{category}+0.5)/({Frequency}_{category}+(0.5/({Error}_{population}/{Frequency}_{population})))) $$
+
+$$ {Risk} : (({Errors}__{category}+0.5)/({Frequency}__{category}+(0.5/({Error}__{population}/{Frequency}__{population})))) $$
 
 Using the above formula, lets evaluate the risks for the two doctors under experiment
 
-$$ {DocA}_{risk}  :(10+0.5)/(100+(0.5/(11/102) = 0.1003 $$
-
+$${DocA}_{risk}  :(10+0.5)/(100+(0.5/(11/102) = 0.1003$$
 and 
-
-$$ {DocB}_{risk}  :(1+0.5)/(2+(0.5/(11/102) = 0.226 $$
+$${DocB}_{risk}  :(1+0.5)/(2+(0.5/(11/102) = 0.226$$
 
 If you noticed, risk value for A was not affected much but risk for B was reduced significantly and at same time was still higher than A. This way, we not only smoothen the risk value but also carry the essence of the actual risk
 
