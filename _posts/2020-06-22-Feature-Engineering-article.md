@@ -82,7 +82,7 @@ $$ {Risk}_{gen} : {Error}_{count}/{Observations} $$
 ### Entropy
 Entropy is a measure of uncertainty or randomness associated with a feature. A more stable system would have Zero Entropy whereas a highy volatile system would have a very high entropy value.
 
-$$ Entropy =\boxed{\biggl(\sum_{i=1}^{n}x_{i}/w*log(w/x_{i})\biggr)}$$
+$$ Entropy =\boxed{-\biggl(\sum_{i=1}^{n}\frac{x_{i}}{w}*log(\frac{x_{i}}{w})\biggr)}$$
 
 where $$ n $$ is maximum number of child column values across which occured for a parent column.
 
