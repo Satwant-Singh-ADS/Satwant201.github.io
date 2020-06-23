@@ -36,13 +36,17 @@ There should be some smoothening factor associated while calculating risk which 
 
 Lets introduce a new formula for calculating Risk
 
-$${Risk} : (({Errors}_{category}+0.5)/({Frequency}_{category}+(0.5/({Error}_{population}/{Frequency}_{population}))))$$
+\fbox{$${Risk} : (({Errors}_{category}+0.5)/({Frequency}_{category}+(0.5/({Error}_{population}/{Frequency}_{population}))))$$}
 
 Using the above formula, lets evaluate the risks for the two doctors under experiment
 
-$${DocA}_{risk}  :(10+0.5)/(100+(0.5/(11/102) = 0.1003$$
- 
-$${DocB}_{risk}  :(1+0.5)/(2+(0.5/(11/102) = 0.226$$
+$$
+{DocA}_{risk}  :(10+0.5)/(100+(0.5/(11/102) = 0.1003
+$$
+ and 
+$$
+{DocB}_{risk}  :(1+0.5)/(2+(0.5/(11/102) = 0.226
+$$
 
 If you noticed, risk value for A was not affected much but risk for B was reduced significantly and at same time was still higher than A. This way, we not only smoothen the risk value but also carry the essence of the actual risk
 
