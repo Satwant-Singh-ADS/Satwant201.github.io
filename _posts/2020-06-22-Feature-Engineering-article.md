@@ -36,14 +36,14 @@ There should be some smoothening factor associated while calculating risk which 
 
 Lets introduce a new formula for calculating Risk
 
-\fbox{$${Risk} : (({Errors}_{category}+0.5)/({Frequency}_{category}+(0.5/({Error}_{population}/{Frequency}_{population}))))$$}
+$$\boxed{{Risk} : (({Errors}_{category}+0.5)/({Frequency}_{category}+(0.5/({Error}_{population}/{Frequency}_{population}))))}$$
 
 Using the above formula, lets evaluate the risks for the two doctors under experiment
 
 $$
 {DocA}_{risk}  :(10+0.5)/(100+(0.5/(11/102) = 0.1003
 $$
- and 
+  
 $$
 {DocB}_{risk}  :(1+0.5)/(2+(0.5/(11/102) = 0.226
 $$
