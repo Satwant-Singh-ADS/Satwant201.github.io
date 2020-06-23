@@ -34,9 +34,9 @@ Lets say we have 2 doctors
 
 There should be some smoothening factor associated while calculating risk which should consider entire population while computing risk
 
-$$ Risk Formula : ((Errors_for_category+0.5)/(x.Frequency_for_category+(0.5/(Error_population/Frequency_population)))) $$
+$$ Risk Formula : (({Errors}_{category}+0.5)/({Frequency}_{category}+(0.5/({Error}_{population}/{Frequency}_{population})))) $$
 
-$$ {DocA}_{risk}  :(10+0.5)/(100+(0.5/(11/102) = 0.1003 $$
+$ {DocA}_{risk}  :(10+0.5)/(100+(0.5/(11/102) = 0.1003 $
 
 $$ {DocB}_{risk}  :(1+0.5)/(2+(0.5/(11/102) = 0.226 $$
 
