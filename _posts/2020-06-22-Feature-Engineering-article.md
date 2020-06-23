@@ -42,6 +42,11 @@ $$
 }
 $$
 
+where $$ {Errors}_{category} $$ is the count of observations where an event happened for category,
+$$ {Frequency}_{category} $$ is the count of total observations where that category occured,
+$$ {Error}_{population} $$ is the count of observations where an event happened in overall training dataset,
+$$ {Frequency}_{population} $$ is the count of total observations in the training datset
+
 Using the above formula, lets evaluate the risks for the two doctors under experiment
 
 $$
