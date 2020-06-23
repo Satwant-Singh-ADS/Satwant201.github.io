@@ -23,7 +23,7 @@ For classification based models, we might be interested in introducing event bas
 ## Types of Features
 
 ### Risk
-Risk in general terms means the probablity that an event will happen.An Event could be a claim denial, Getting or not getting a call in call center analytics, An overpayment on a claim and so on.In all our binary classification problems, we tend to build risk features one way or the other. Generally Data Scientists  build risk feature as simple as ratio of all 1s to sum of 1s and 0s. 
+Risk in general terms means the probablity that an event will happen.An Event could be a claim denial, Getting or not getting a call in call center analytics, An overpayment on a claim and so on.In all our binary classification problems, we tend to build risk features one way or the other. Generally Data Scientists  build risk feature as simple as ratio of all $${1}_{s}$$ to sum of $${1}_{s}$$ and $${0}_{s}$$. 
 
 #### But isn't it wrong?
 Lets say we have 2 doctors
@@ -112,7 +112,7 @@ Here, Jan- Mar data($$ { Red Shaded } $$) is used to calcuate lookback features 
 
 There are alot of additional features which Data Scientists build specific to their project requirement and business requirement. We look forward to feedback and information about additional features which might be helpful to the larger team.
 
-In the next tutorial, I  plan to cover the implementation of different types of features in PySPark and discuss about the different normalization techniques and their inplementation in PySpark
+In the next tutorial, I  plan to cover the implementation of different types of features in PySpark and discuss about the different normalization techniques and their inplementation in PySpark
 
 #### End of the Document
 
