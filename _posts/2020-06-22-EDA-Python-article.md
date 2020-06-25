@@ -670,6 +670,11 @@ sns.pairplot(df_input, hue="Survived")
   <img src="https://github.optum.com/ssing339/PCR_ENI_1_codes/blob/master/output_20_2.png" />
 </p>
 
+<p align="center">
+  <img src="https://github.optum.com/raw/ssing339/PCR_ENI_1_codes/master/output_20_2.png" />
+</p>
+
+
 [Seaborn documentation][https://seaborn.pydata.org/tutorial/distributions.html]
 
 #### Using the above plots, we can see how closely two columns are interating with one another
