@@ -1,8 +1,30 @@
 ---
 layout: post
-title: "Exploratory Data Analysis using Python"
+title: "Python Utilities"
 categories: misc
 ---
+
+## Table of contents
+
+1. Exploratory Data Analysis in Python
+
+2. Building Binary classification model using GBM and H2o Library
+
+3. Grid Search in H2o
+
+4. Data connections & Pipelines in Python
+  a. Hive to Python
+  b. SSH
+
+5. Basic Webscapping using BeautifulSoup library
+
+6. Topic modelling using LDA
+
+7. N gram analysis using NLTK
+
+
+
+
 
 ### Exploratory Data Analysis in Python
 
