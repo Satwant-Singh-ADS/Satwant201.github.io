@@ -666,29 +666,9 @@ import matplotlib.pyplot as plt
 
 sns.pairplot(df_input, hue="Survived")
 
-```
-
-    /opt/mapr/tools/python/anaconda3/lib/python3.5/site-packages/scipy/stats/stats.py:1713: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
-      return np.add.reduce(sorted[indexer] * weights, axis=axis) / sumval
-    /opt/mapr/tools/python/anaconda3/lib/python3.5/site-packages/statsmodels/nonparametric/kde.py:494: RuntimeWarning: invalid value encountered in true_divide
-      binned = fast_linbin(X,a,b,gridsize)/(delta*nobs)
-    /opt/mapr/tools/python/anaconda3/lib/python3.5/site-packages/statsmodels/nonparametric/kdetools.py:34: RuntimeWarning: invalid value encountered in double_scalars
-      FAC1 = 2*(np.pi*bw/RANGE)**2
-
-
-
-
-
-    <seaborn.axisgrid.PairGrid at 0x7f938f3f7630>
-
-
-
-
-![png](output_20_2.png)
-
-
-
-
+<p align="center">
+  <img src="https://github.optum.com/ssing339/PCR_ENI_1_codes/blob/master/output_20_2.png" />
+</p>
 
 [Seaborn documentation][https://seaborn.pydata.org/tutorial/distributions.html]
 
