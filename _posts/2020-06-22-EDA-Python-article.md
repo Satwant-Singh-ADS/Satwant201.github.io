@@ -825,7 +825,7 @@ In the above scenario, following steps could be helpful
 2. Perform data processing and analysis
 3. Sqoop Export output data back to the client server
 
-Let's how we can do this in Python 
+Let's see how we can do this in Python 
 
 
 
