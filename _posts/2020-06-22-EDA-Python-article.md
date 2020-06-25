@@ -736,28 +736,6 @@ train_df = h2o.import_file('titanic.csv')
 
 
 ```python
-train_df.head()
-```
-
-
-<table>
-<thead>
-<tr><th style="text-align: right;">  Survived</th><th style="text-align: right;">  Pclass</th><th>Name                                              </th><th>Sex   </th><th style="text-align: right;">  Age</th><th style="text-align: right;">  Siblings/Spouses Aboard</th><th style="text-align: right;">  Parents/Children Aboard</th><th style="text-align: right;">   Fare</th></tr>
-</thead>
-<tbody>
-<tr><td style="text-align: right;">         0</td><td style="text-align: right;">       3</td><td>Mr. Owen Harris Braund                            </td><td>male  </td><td style="text-align: right;">   22</td><td style="text-align: right;">                        1</td><td style="text-align: right;">                        0</td><td style="text-align: right;"> 7.25  </td></tr>
-<tr><td style="text-align: right;">         1</td><td style="text-align: right;">       1</td><td>Mrs. John Bradley (Florence Briggs Thayer) Cumings</td><td>female</td><td style="text-align: right;">   38</td><td style="text-align: right;">                        1</td><td style="text-align: right;">                        0</td><td style="text-align: right;">71.2833</td></tr>
-<tr><td style="text-align: right;">         1</td><td style="text-align: right;">       3</td><td>Miss. Laina Heikkinen                             </td><td>female</td><td style="text-align: right;">   26</td><td style="text-align: right;">                        0</td><td style="text-align: right;">                        0</td><td style="text-align: right;"> 7.925 </td></tr>
-<tr><td style="text-align: right;">         1</td><td style="text-align: right;">       1</td><td>Mrs. Jacques Heath (Lily May Peel) Futrelle       </td><td>female</td></tbody>
-</table>
-
-
-```python
-
-```
-
-
-```python
 ## Pass the target variable to be predicted
 y = 'Survived'
 
