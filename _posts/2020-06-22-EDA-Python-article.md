@@ -663,7 +663,7 @@ import matplotlib.pyplot as plt
 ### Plotting a Grid of plots for bivariate between different columns in the data.
 
 #Caution : Might be very slow depending upon datasize
-
+```
 sns.pairplot(df_input, hue="Survived")
 
 <p align="center">
