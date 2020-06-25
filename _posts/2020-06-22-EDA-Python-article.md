@@ -13,7 +13,9 @@ categories: misc
 3. Grid Search in H2o
 
 4. Data connections & Pipelines in Python
+
   a. Hive to Python
+
   b. SSH
 
 5. Basic Webscapping using BeautifulSoup library
