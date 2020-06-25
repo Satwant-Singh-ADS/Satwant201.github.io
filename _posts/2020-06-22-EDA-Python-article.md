@@ -752,23 +752,8 @@ train_df.head()
 <tr><td style="text-align: right;">         0</td><td style="text-align: right;">       3</td><td>Mr. Owen Harris Braund                            </td><td>male  </td><td style="text-align: right;">   22</td><td style="text-align: right;">                        1</td><td style="text-align: right;">                        0</td><td style="text-align: right;"> 7.25  </td></tr>
 <tr><td style="text-align: right;">         1</td><td style="text-align: right;">       1</td><td>Mrs. John Bradley (Florence Briggs Thayer) Cumings</td><td>female</td><td style="text-align: right;">   38</td><td style="text-align: right;">                        1</td><td style="text-align: right;">                        0</td><td style="text-align: right;">71.2833</td></tr>
 <tr><td style="text-align: right;">         1</td><td style="text-align: right;">       3</td><td>Miss. Laina Heikkinen                             </td><td>female</td><td style="text-align: right;">   26</td><td style="text-align: right;">                        0</td><td style="text-align: right;">                        0</td><td style="text-align: right;"> 7.925 </td></tr>
-<tr><td style="text-align: right;">         1</td><td style="text-align: right;">       1</td><td>Mrs. Jacques Heath (Lily May Peel) Futrelle       </td><td>female</td><td style="text-align: right;">   35</td><td style="text-align: right;">                        1</td><td style="text-align: right;">                        0</td><td style="text-align: right;">53.1   </td></tr>
-<tr><td style="text-align: right;">         0</td><td style="text-align: right;">       3</td><td>Mr. William Henry Allen                           </td><td>male  </td><td style="text-align: right;">   35</td><td style="text-align: right;">                        0</td><td style="text-align: right;">                        0</td><td style="text-align: right;"> 8.05  </td></tr>
-<tr><td style="text-align: right;">         0</td><td style="text-align: right;">       3</td><td>Mr. James Moran                                   </td><td>male  </td><td style="text-align: right;">   27</td><td style="text-align: right;">                        0</td><td style="text-align: right;">                        0</td><td style="text-align: right;"> 8.4583</td></tr>
-<tr><td style="text-align: right;">         0</td><td style="text-align: right;">       1</td><td>Mr. Timothy J McCarthy                            </td><td>male  </td><td style="text-align: right;">   54</td><td style="text-align: right;">                        0</td><td style="text-align: right;">                        0</td><td style="text-align: right;">51.8625</td></tr>
-<tr><td style="text-align: right;">         0</td><td style="text-align: right;">       3</td><td>Master. Gosta Leonard Palsson                     </td><td>male  </td><td style="text-align: right;">    2</td><td style="text-align: right;">                        3</td><td style="text-align: right;">                        1</td><td style="text-align: right;">21.075 </td></tr>
-<tr><td style="text-align: right;">         1</td><td style="text-align: right;">       3</td><td>Mrs. Oscar W (Elisabeth Vilhelmina Berg) Johnson  </td><td>female</td><td style="text-align: right;">   27</td><td style="text-align: right;">                        0</td><td style="text-align: right;">                        2</td><td style="text-align: right;">11.1333</td></tr>
-<tr><td style="text-align: right;">         1</td><td style="text-align: right;">       2</td><td>Mrs. Nicholas (Adele Achem) Nasser                </td><td>female</td><td style="text-align: right;">   14</td><td style="text-align: right;">                        1</td><td style="text-align: right;">                        0</td><td style="text-align: right;">30.0708</td></tr>
-</tbody>
+<tr><td style="text-align: right;">         1</td><td style="text-align: right;">       1</td><td>Mrs. Jacques Heath (Lily May Peel) Futrelle       </td><td>female</td></tbody>
 </table>
-
-
-
-
-
-    
-
-
 
 
 ```python
