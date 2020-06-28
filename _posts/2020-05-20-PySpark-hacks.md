@@ -8,7 +8,7 @@ categories: misc
 1. Basic terminology associated with PySpark
 2. Basic commands of PySpark
 3. Using SQL in PySpark
-4. Using Pandas and SPark operations on same dataframe
+4. Using Pandas and Spark operations on same dataframe
 5. Data Compression techniques
 6. Code optimization techniques - Repartitioning & Caching
 7. Complex programs such as PCA and predictive modeling using Spark
