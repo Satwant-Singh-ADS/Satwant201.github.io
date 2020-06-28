@@ -698,8 +698,6 @@ sns.pairplot(df_input, hue="Survived")
 
 Click <a href="https://seaborn.pydata.org/tutorial/distributions.html">here</a> to go to Seaborn documentation.
 
-[Seaborn documentation][https://seaborn.pydata.org/tutorial/distributions.html]
-
 #### Using the above plots, we can see how closely two columns are interating with one another
 
 At the same time, the hue based on our dependent variable helps us idenitfy potential features in predicting dependent variable
