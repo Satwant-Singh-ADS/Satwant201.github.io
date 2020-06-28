@@ -28,3 +28,50 @@ Spark Action is the operation where spark will actually compute the underlying f
 To better understand the concept of Lazy Evaluation and Action, lets take an example of following code
 
 
+
+```python
+import time
+
+```
+
+
+```python
+### Load a csv file as spark dataframe
+df = spark.read.format("csv").option("header", "true").load("09_inventory.csv") 
+
+```
+
+#### Lazy Evaluation
+
+
+```python
+t1 = time.time()
+###### Lazy Evaluation ###################
+
+df_filtered = df.filter(df("state") === "OH")
+
+t2 = time.time()
+print(t2-t1)
+
+```
+
+    4.673004150390625e-05
+
+
+#### Action 
+
+
+```python
+t3 = time.time()
+
+df_filtered.count()
+
+t4 = time.time()
+print(t4-t3)
+
+```
+
+    6.0064146518707275
+
+
+
