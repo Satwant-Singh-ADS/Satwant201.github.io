@@ -30,7 +30,7 @@ PySpark is the Python API written in python to support Apache Spark. In a PySPar
 
 If you’re already familiar with Python and libraries such as Pandas, then PySpark is a great language to learn in order to create more scalable analyses and pipelines
 
-#### Before, we get started with the basics of PySPark programming, lets discuss some key terms associated with spark framework.
+#### Before, we get started with the basics of PySpark programming, lets discuss some key terms associated with spark framework.
 
 ### Resilient Distributed Datasets (RDD)
 RDD’s are collection of data items that are split into partitions and can be stored in-memory on workers nodes of the spark cluster. In terms of datasets, apache spark supports two types of RDD’s – Hadoop Datasets which are created from the files stored on HDFS and parallelized collections which are based on existing Scala collections. Spark RDD’s support two different types of operations – Transformations and Actions.
