@@ -1169,13 +1169,6 @@ n_gram_df=pd.DataFrame(n_gram_common,columns=["N Gram","Frquency"])
 #### Now this n gram results can be used to publish a word cloud
 ```
 
+#### End of the Document
 
-```python
-
-```
-
-
-```python
-
-```
-
+###### *Stay Tuned for more information*
