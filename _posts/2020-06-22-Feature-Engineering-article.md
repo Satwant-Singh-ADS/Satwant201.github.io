@@ -5,14 +5,19 @@ categories: misc
 ---
 
 {% include lib/mathjax.html %}
-## Brief Overview
+## Feature Engineering
+
+Feature engineering is an informal topic, but one that is absolutely known and agreed to be key to success in applied machine learning.Feature engineering is the process of using domain knowledge to extract features from raw data via data mining techniques. These features can be used to improve the performance of machine learning algorithms.
+
+* Feature engineering is another topic which doesn’t seem to merit any review papers or books, or even chapters in books, but it is absolutely vital to ML success. Much of the success of machine learning is actually success in engineering features that a learner can understand * - Scott Locklin 
+
 The aim of this blog is to walk users through the commonly used features in building regression and binary classification models.
 
 For different types of problem statements and modelling techniques, the choice of variables and feature selection varies.
 
-For Regression based models, we might be interested in building aggregated views of certain continuous independent variables using history data.
+For Regression based models, we might be interested in building aggregated views of certain continuous independent variables using history data. Lets we want to predict daily sales of a retailer. Here average number of customers for last 1 month for each week of the day could become an important predictor.
 
-For classification based models, we might be interested in introducing event based features to help the model focus on variables which might be helpful in explaining maximum variance and patterns in the data
+For classification based models, we might be interested in introducing event based features to help the model focus on variables which might be helpful in explaining maximum variance and patterns in the data.
 
 <p align="center">
   <img width="600" height="200" src="https://www.vidora.com/wp-content/uploads/2017/10/Screen-Shot-2017-10-16-at-6.33.28-PM.png">
