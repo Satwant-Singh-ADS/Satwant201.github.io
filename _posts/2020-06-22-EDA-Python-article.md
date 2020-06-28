@@ -26,7 +26,9 @@ categories: misc
 
 ### Exploratory Data Analysis in Python
 
-For this section, we will use the the famous Titanic dataset for performing univariate and bivariate analysis
+Exploratory Data Analysis refers to the critical process of performing initial investigations on data so as to discover patterns,to spot anomalies,to test hypothesis and to check assumptions with the help of summary statistics and graphical representations
+
+To share my understanding of the concept and techniques I know,I’ll take an example of the famous Titanic dataset
 
 
 ##### Thanks to Kaggle and encyclopedia-titanica for the dataset
@@ -694,6 +696,7 @@ sns.pairplot(df_input, hue="Survived")
   <img src="https://github.optum.com/raw/ssing339/PCR_ENI_1_codes/master/output_20_2.png" />
 </p>
 
+Click <a href="https://seaborn.pydata.org/tutorial/distributions.html">here</a> to go to Seaborn documentation.
 
 [Seaborn documentation][https://seaborn.pydata.org/tutorial/distributions.html]
 
@@ -703,6 +706,19 @@ At the same time, the hue based on our dependent variable helps us idenitfy pote
 
 ### Building a Binary classification model using GBM in H2o Library
 
+Key Terms used in this section
+
+#### Gradient Boosting Machine (GBM)
+
+Gradient Boosting Machine (for Regression and Classification) is a forward learning ensemble method. The guiding heuristic is that good predictive results can be obtained through increasingly refined approximations.
+
+#### H2O Library
+H2O is a fully open source, distributed in-memory machine learning platform with linear scalability. H2O supports the most widely used statistical & machine learning algorithms including gradient boosted machines, generalized linear models, deep learning and more.
+
+#### Grid (Hyperparameter) Search
+In a grid search, users specify a set of values for each hyperparameter that they want to search over, and H2O will train a model for every combination of the hyperparameter values. This means that if you have three hyperparameters and you specify 5, 10 and 2 values for each, your grid will contain a total of 5*10*2 = 100 models
+
+Lets take the Titanic Dataset and try to predict the "Survived" Attribute using H2o GBM ML Technique
 
 ```python
 import h2o
