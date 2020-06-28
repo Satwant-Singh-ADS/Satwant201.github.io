@@ -4,6 +4,19 @@ title: "PySpark Basics"
 categories: misc
 ---
 
+## Flow of the blog
+1. Basic terminology associated with PySpark
+2. Basic commands of PySpark
+3. Using SQL in PySpark
+4. Using Pandas and SPark operations on same dataframe
+5. Data Compression techniques
+6. Code optimization techniques
+  a. Repartitioning 
+  b. Data Caching 
+  c. Picking the best spark configuration
+7. Complex programs such as PCA and predictive modeling using Spark
+
+
 ## Apache Spark
 Apache Spark™ is a unified analytics engine for large-scale data processing. Apache Spark is an open-source distributed general-purpose cluster-computing framework. Spark provides an interface for programming entire clusters with implicit data parallelism and fault tolerance. It provides high-level APIs in Java, Scala, Python and R
 
@@ -72,6 +85,8 @@ print(t4-t3)
 ```
 
     6.0064146518707275
+
+
 
 
 
