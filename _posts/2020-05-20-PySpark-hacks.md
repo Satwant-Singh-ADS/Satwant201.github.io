@@ -11,7 +11,6 @@ categories: misc
 4. Using Pandas and SPark operations on same dataframe
 5. Data Compression techniques
 6. Code optimization techniques
- 
  a. Repartitioning 
  
  b. Data Caching 
