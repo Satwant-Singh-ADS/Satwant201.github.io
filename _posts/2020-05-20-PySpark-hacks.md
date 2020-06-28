@@ -19,6 +19,12 @@ Apache Spark™ is a unified analytics engine for large-scale data processing. A
 
 As compared to the disk-based, two-stage MapReduce of Hadoop, Spark provides up to 100 times faster performance for a few applications with in-memory primitives. Fast performance makes it suitable for machine learning algorithms as it allows programs to load data into the memory of a cluster and query the data constantly
 
+### Basic Spark Computing Framework
+
+<p align="center">
+  <img width="500" height="300" src="https://raw.githubusercontent.com/Satwant201/Satwant201.github.io/master/Images/spark_framework.jpg">
+</p>
+
 ## PySpark
 PySpark is the Python API written in python to support Apache Spark. In a PySPark code, developers have the liberty to use SPark , Python , SQL commands hence makes it a perfect programming lanaguage for machine learning development
 
