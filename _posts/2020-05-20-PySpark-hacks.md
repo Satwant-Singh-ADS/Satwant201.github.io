@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "PySpark Basics"
+title: "PySpark By Example"
 categories: misc
 ---
 
