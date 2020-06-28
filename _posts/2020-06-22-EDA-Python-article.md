@@ -689,11 +689,7 @@ import matplotlib.pyplot as plt
 sns.pairplot(df_input, hue="Survived")
 
 <p align="center">
-  <img src="https://github.optum.com/ssing339/PCR_ENI_1_codes/blob/master/output_20_2.png" />
-</p>
-
-<p align="center">
-  <img src="https://github.optum.com/raw/ssing339/PCR_ENI_1_codes/master/output_20_2.png" />
+  <img src="https://raw.githubusercontent.com/Satwant201/Satwant201.github.io/master/Images/output_20_2.png" />
 </p>
 
 Click <a href="https://seaborn.pydata.org/tutorial/distributions.html">here</a> to go to Seaborn documentation.
