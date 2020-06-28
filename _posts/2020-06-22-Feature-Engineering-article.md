@@ -14,7 +14,7 @@ Feature engineering is an informal topic, but one that is absolutely known and a
 </p>
 
 
-*Feature engineering is another topic which doesn’t seem to merit any review papers or books, or even chapters in books, but it is absolutely vital to ML success. Much of the success of machine learning is actually success in engineering features that a learner can understand* - Scott Locklin 
+### *Feature engineering is another topic which doesn’t seem to merit any review papers or books, or even chapters in books, but it is absolutely vital to ML success. Much of the success of machine learning is actually success in engineering features that a learner can understand* - Scott Locklin 
 
 #### The aim of this blog is to walk users through the commonly used features in building regression and binary classification models
 
