@@ -35,6 +35,11 @@ If you’re already familiar with Python and libraries such as Pandas, then PySp
 ### Resilient Distributed Datasets (RDD)
 RDD’s are collection of data items that are split into partitions and can be stored in-memory on workers nodes of the spark cluster. In terms of datasets, apache spark supports two types of RDD’s – Hadoop Datasets which are created from the files stored on HDFS and parallelized collections which are based on existing Scala collections. Spark RDD’s support two different types of operations – Transformations and Actions.
 
+<p align="center">
+  <img width="500" height="300" src="https://raw.githubusercontent.com/Satwant201/Satwant201.github.io/master/Images/rdd_diag.PNG">
+</p>
+
+
 ### Lazy Evaluation
 As the name itself indicates its definition, lazy evaluation in Spark means that the execution will not start until an action is triggered. For example, we filter a datatset. The filtering will not actually take place until the user expects the output such as Count after filtering or exporting the filtered dataset to disk.
 
