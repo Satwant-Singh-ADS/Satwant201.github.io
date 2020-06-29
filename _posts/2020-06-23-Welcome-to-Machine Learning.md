@@ -12,9 +12,8 @@ Machine learning is a method of data analysis that automates analytical model bu
 How it works: This algorithm consist of a target / outcome variable (or dependent variable) which is to be predicted from a given set of predictors (independent variables). Using these set of variables, we generate a function that map inputs to desired outputs. The training process continues until the model achieves a desired level of accuracy on the training data. 
 #### Examples of Supervised Learning 
 1. Linear Regression
-2. Decision Tree
+2. Logistic Regression 
 3. Random Forest
-4. Logistic Regression
 
 ### Unsupervised Learning
 How it works: In this algorithm, we do not have any target or outcome variable to predict / estimate.  It is used for clustering population in different groups, which is widely used for segmenting customers in different groups for specific intervention. 
