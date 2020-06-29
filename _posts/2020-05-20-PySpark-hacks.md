@@ -377,12 +377,6 @@ df_sql_read = spark.sql('select * from dbo.inventory_data')
 
 #### Pandas to and Fro
 
-
-```python
-df_input = spark.sql('select * from pi_prod_tmp.pcr_balance_leads')
-```
-
-
 ```python
 #Convert a Spark dataframe to a Pandas DF
 t1 = time.time()
