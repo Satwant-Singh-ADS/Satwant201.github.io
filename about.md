@@ -8,7 +8,7 @@ I am a Data Science Enthusiast eager to learn newer techniques of Machine Learni
 
 Currently, I work as a Data Scientist at **UnitedHealth Group** and focus on reducing Fraud/Waste/Abuse/Error in claim processing business by building sophisticated models and Robotic process automations. 
 
-I have an undergraduation in *Electronics & Communication Engineering* from **Punjab Engineering College, Chandigarh (PEC)**, one of the finest and oldest public engineering colleges of India
+I have an undergraduation in *Electronics & Communication Engineering* from **Punjab Engineering College, Chandigarh (PEC)**, one of the finest and oldest public engineering colleges of India.
 
 Key areas I plan to cover in this website
 1. Predicitve modeling 
