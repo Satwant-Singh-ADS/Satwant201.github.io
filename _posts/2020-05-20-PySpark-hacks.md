@@ -25,11 +25,11 @@ As compared to the disk-based, two-stage MapReduce of Hadoop, Spark provides up 
 </p>
 
 ## PySpark
-PySpark is the Python API written in python to support Apache Spark. In a PySPark code, developers have the liberty to use SPark , Python , SQL commands hence makes it a perfect programming lanaguage for machine learning development
+PySpark is an Python API to support Apache Spark. In a PySpark code, developers have the liberty to use Spark , Python , SQL commands hence makes it a perfect programming lanaguage for machine learning development
 
 If you’re already familiar with Python and libraries such as Pandas, then PySpark is a great language to learn in order to create more scalable analyses and pipelines
 
-#### Before, we get started with the basics of PySpark programming, lets discuss some key terms associated with spark framework.
+#### Before, we get started with the basics of PySpark programming, let's discuss some key terms associated with Spark framework.
 
 ### Resilient Distributed Datasets (RDD)
 RDD’s are collection of data items that are split into partitions and can be stored in-memory on workers nodes of the spark cluster. In terms of datasets, apache spark supports two types of RDD’s – Hadoop Datasets which are created from the files stored on HDFS and parallelized collections which are based on existing Scala collections. Spark RDD’s support two different types of operations – Transformations and Actions.
@@ -260,9 +260,9 @@ df_join.show(3)
 
 ### Spark-SQL
 
-Sometimes, while performing data transformation phase or while writting complex feature engineering codes, we wonder that if we could use SQL here, we would done this very easily and quickly. Pyspark got this enabled for you via its Spark-sql API
+Sometimes, while performing data transformations or while writting complex feature engineering codes, we wonder that if we could use SQL here, we would have done this very easily and quickly. Pyspark got this enabled for you via its Spark-sql API
 
-Lets try to write some sql queries using the above Spark table as the underlying SQL Table
+Let's try to write some sql queries using the above Spark table as the underlying SQL Table
 
 
 ```python
@@ -425,7 +425,7 @@ This becomes very prudential while working with big datasets stored as partition
 Lets take an example of a server which maintains daily visitor details for a shopping mall partitioned at Date Level. It is very obvious to have irregular partition size with more big partitions for weekends over weekdays. Map-Reduce does not adjust these irregular partition sizes resulting in few mappers lagging behind others.
 
 #### Repartitioning Spark DataFrame
-The default partition size is 200 in PySPark. What this means is - Lets say you load a dataset with 1000 partition or irregular/ Regular size, spark will reduce the partition count to 200 resulting in bigger/smaller output partition size depending upon input partition size.
+The default partition size is 200 in PySpark. What this means is - Let's say you load a dataset with 1000 partition of irregular/ Regular size, spark will reduce the partition count to 200 resulting in bigger/smaller output partition size depending upon input partition size.
 
 Input Data 
 $$ {Number of Partitions} = 1000 $$
@@ -463,7 +463,7 @@ print(n)
 
 
 #### Caching a Data Frame
-At this point, we do understand the flow of Spark code. Also, we are familier with the concept of **Lazy Evaluation** and **Action**. Spark doesn't load any data from the disk unless an Action requires that data. What this means is even if same spark dataframe might be called for an action 100 times, Spark would consider all 100 actions as different. So, there there could be huge gain if we somehow load this dataframe in our Cache Memory ( Fastest memory in CPU ), then imagine how fast our code would become.
+At this point, we understand the flow of Spark code. Also, we are familier with the concept of **Lazy Evaluation** and **Action**. Spark doesn't load any data from the disk unless an Action requires that data. What this means is even if a same spark dataframe might be called for an action 100 times, Spark would consider all 100 actions as different. So, there there could be huge gain if we can somehow load this dataframe in our Cache Memory ( Fastest memory in CPU ), then imagine how fast our code would become.
 
 This can be achieved by Caching that dataframe in the spark cluster by using cache() command. For a successful cache operation , a action command such as count , show must follow a cache command
 
@@ -537,6 +537,8 @@ print(t2-t1)
 
 
 See the run-time reduction in our count command execution after caching the data
+
+### Please also explore Persist command and Coalasce commands and contemplate when to use them over cache and Repartition
 
 ### Complex Data Operations using PySpark
 
@@ -615,12 +617,13 @@ PySpark as a library has matured alot in last 2 years and now it allows end to e
 
 On top of this, PySpark is also capable of simulating famous ML Libraries such as **H2O** as Sparkling Water API
 
-I personally find PySPark very handy as it allows me to write all my codes here by leveraging different data sources such as SQL/ Hive / Flat files.
+I personally find PySpark very handy as it allows me to write all my codes in 1 language by leveraging different data sources such as SQL/ Hive / Flat files.
 
-Users can write alot of executor level UDFS hereby reducing the runtime significantly
+Users can write alot of executor level UDFs hereby reducing the runtime significantly
 
-End of the Document
+#### End of the Document
 
+Stay tuned for more such interesting blogs. Till then , Stay Safe & Happy Coding
 
 
 
