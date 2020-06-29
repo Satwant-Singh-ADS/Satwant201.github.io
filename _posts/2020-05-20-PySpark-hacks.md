@@ -11,8 +11,7 @@ categories: misc
 4. Using Pandas and Spark operations on same dataframe
 5. Data Compression techniques
 6. Code optimization techniques - Repartitioning & Caching
-7. Complex programs such as PCA and predictive modeling using Spark
-8. Picking best spark cluster configuration
+7. Complex programs such as PCA
 
 ## Apache Spark
 Apache Spark™ is a unified analytics engine for large-scale data processing. Apache Spark is an open-source distributed general-purpose cluster-computing framework. Spark provides an interface for programming entire clusters with implicit data parallelism and fault tolerance. It provides high-level APIs in Java, Scala, Python and R
