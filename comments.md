@@ -1,7 +1,7 @@
 --
 layout: page
 title: Comment-Policy
-permalink: /Comment-Policy/
+permalink: /Policy/
 ---
 
 Etiquette - "Be polite and stay on topic”. "No self-promotion". "Don't flag/downvote comments because you disagree with a user."
