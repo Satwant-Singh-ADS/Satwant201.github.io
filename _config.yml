@@ -52,7 +52,7 @@ minima:
 header_pages:
 - about.md
 - comments.md
-
+- Subscribe.html
 # Build settings
 theme: minima
 
