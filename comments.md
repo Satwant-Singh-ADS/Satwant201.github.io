@@ -1,6 +1,6 @@
 --
 layout: page
-title: Comment Policy
+title: Comment-Policy
 permalink: /about/
 ---
 
