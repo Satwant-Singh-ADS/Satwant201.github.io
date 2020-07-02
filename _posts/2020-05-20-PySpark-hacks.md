@@ -428,12 +428,16 @@ Lets take an example of a server which maintains daily visitor details for a sho
 The default partition size is 200 in PySpark. What this means is - Let's say you load a dataset with 1000 partition of irregular/ Regular size, spark will reduce the partition count to 200 resulting in bigger/smaller output partition size depending upon input partition size.
 
 Input Data 
-$$ {Number of Partitions} = 1000 $$
-$$ { Partition Size } = 100 MB$$
+
+$${Number of Partitions} = 1000$$
+
+$${ Partition Size } = 100 MB$$
 
 Output Spark Dataframe
-$$ {Number of Partitions} = 200 $$
-$$ { Partition Size } = 500 MB$$
+
+$${Number of Partitions} = 200$$
+
+$${ Partition Size } = 500 MB$$
 
 Repartioning is a doube ended sword. In the above example, higher partition size could result in **Executor memory exceeded error** if the executor core memory is less than **500MB**
 
