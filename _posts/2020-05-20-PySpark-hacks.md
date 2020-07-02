@@ -466,15 +466,18 @@ def pca_function(base_table,Numeric_col,k):
 ```
 
 
+
 ```python
 help(pca_function)
 ```
-Help on function pca_function in module __main__:
- 
- pca_function(base_table, Numeric_col, k)
- base_table : Spark DataFrame
- Numeric_col : Parse the numeric column names using which PCA needs to be computed
- k : Number of Principle components to be computed
+
+    Help on function pca_function in module __main__:
+    
+    pca_function(base_table, Numeric_col, k)
+        base_table : Spark DataFrame
+        Numeric_col : Parse the numeric column names using which PCA needs to be computed
+        k : Number of Principle components to be computed
+    
 
 PySpark is a library that has matured a lot in the last 2 years and now it allows end to end machine learning pipeline. Starting from data loading to data wrangling to model 
 development, everything can be done in PySpark.
