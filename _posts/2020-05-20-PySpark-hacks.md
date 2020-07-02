@@ -3,7 +3,7 @@ layout: post
 title: "PySpark By Example"
 categories: misc
 ---
-
+{% include lib/mathjax.html %}
 ## Flow of the blog
 1. Basic terminology associated with PySpark
 2. Basic commands of PySpark
