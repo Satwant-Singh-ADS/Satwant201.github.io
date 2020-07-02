@@ -426,44 +426,45 @@ from functools import reduce
 
 ```python
 def pca_function(base_table,Numeric_col,k):
-  '''
-  base_table : Spark DataFrame
-  Numeric_col : Parse the numeric column names using which PCA needs to be computed
-  k : Number of Principle components to be computed
-  '''
-
-  Numeric_col_list = Numeric_col ##Parse the numeric column names using which PCA needs to be computed
-  temp_table = base_table
-  k_value = k ## this contains the of principle components requested
-  Var_table=temp_table.select(Numeric_col_list)
-  Var_table = Var_table.fillna(0)
-  assembler = VectorAssembler(inputCols=Var_table.columns, outputCol="features")
-  if k>len(Numeric_col_list):
-  k=len(Numeric_col_list)
-  elif k==0:
-  print("PLease pass positive non zero value")
-  return None
-  var_rdd = assembler.transform(Var_table).select("features")
-  pca = PCAml(k=k, inputCol="features", outputCol="pca")
-  model = pca.fit(var_rdd)
-  transformed = model.transform(var_rdd)
-  pca_df = transformed.select('pca').rdd.map(lambda x: x[0].toArray().tolist()).toDF()
-  oldColumns = pca_df.schema.names
-  newColumns=["Prin_comp"+w for w in pca_df.schema.names]
-  pca_final = reduce(lambda pca_df, idx: pca_df.withColumnRenamed(oldColumns[idx], newColumns[idx]), range(len(oldColumns)), pca_df)
-  if "index" in temp_table.schema.names:
-  print("schema_already_contains_index")
-  temp_table = temp_table.drop(*["index"])
-  schema_new = temp_table.schema.add("index", LongType(), False)
-  df1_index = temp_table.rdd.zipWithIndex().map(lambda l: list(l[0]) + [l[1]]).toDF(schema_new)
-  schema_new = pca_final.schema.add("index", LongType(), False)
-  df2_index = pca_final.rdd.zipWithIndex().map(lambda l: list(l[0]) + [l[1]]).toDF(schema_new)
-  #df1_index = zipindexdf(base_table)
-  #df2_index = zipindexdf(pca_final)
-  Var_table1 = df1_index.join(df2_index, "index", "inner")
-  Var_table1 = Var_table1.drop("index")
-  return Var_table1
+    '''
+    base_table : Spark DataFrame
+    Numeric_col : Parse the numeric column names using which PCA needs to be computed
+    k : Number of Principle components to be computed
+    '''
+    
+    Numeric_col_list = Numeric_col ##Parse the numeric column names using which PCA needs to be computed
+    temp_table = base_table
+    k_value = k ## this contains the of principle components requested
+    Var_table=temp_table.select(Numeric_col_list)
+    Var_table = Var_table.fillna(0)
+    assembler = VectorAssembler(inputCols=Var_table.columns, outputCol="features")
+    if k>len(Numeric_col_list):
+        k=len(Numeric_col_list)
+    elif k==0:
+        print("PLease pass positive non zero value")
+        return None
+    var_rdd = assembler.transform(Var_table).select("features")
+    pca = PCAml(k=k, inputCol="features", outputCol="pca")
+    model = pca.fit(var_rdd)
+    transformed = model.transform(var_rdd)
+    pca_df = transformed.select('pca').rdd.map(lambda x: x[0].toArray().tolist()).toDF()
+    oldColumns = pca_df.schema.names
+    newColumns=["Prin_comp"+w for w in pca_df.schema.names]
+    pca_final = reduce(lambda pca_df, idx: pca_df.withColumnRenamed(oldColumns[idx], newColumns[idx]), range(len(oldColumns)), pca_df)
+    if "index" in temp_table.schema.names:
+        print("schema_already_contains_index")
+        temp_table = temp_table.drop(*["index"])
+    schema_new = temp_table.schema.add("index", LongType(), False)
+    df1_index =  temp_table.rdd.zipWithIndex().map(lambda l: list(l[0]) + [l[1]]).toDF(schema_new)
+    schema_new = pca_final.schema.add("index", LongType(), False)
+    df2_index =  pca_final.rdd.zipWithIndex().map(lambda l: list(l[0]) + [l[1]]).toDF(schema_new)
+    #df1_index = zipindexdf(base_table)
+    #df2_index = zipindexdf(pca_final)
+    Var_table1 = df1_index.join(df2_index, "index", "inner")
+    Var_table1 = Var_table1.drop("index")
+    return Var_table1
 ```
+
 
 ```python
 help(pca_function)
