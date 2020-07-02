@@ -90,13 +90,14 @@ pyspark.sql.dataframe.DataFrame
 #### Second Argument "False" is optional and it allows to print the entire column contents instead of pruning to fit col width
 df_input.show(2,False)
 ```
-+ - - - - - + - - - - + - - - - - - - + - - - - - - - - -+ - - - - - - - - - - - - - - - - - + - - - - - - - - - - - + - - - -+ - - - - - -+
- |Order Date|Order ID|Order Quantity|Product Container|Product Name |Product Sub-Category |Sales |Ship Mode |
- + - - - - - + - - - - + - - - - - - - + - - - - - - - - -+ - - - - - - - - - - - - - - - - - + - - - - - - - - - - - + - - - -+ - - - - - -+
- |1/27/2007 |24544 |31 |Medium Box |Canon MP41DH Printing Calculator |Office Machines |6567.00|Express Air|
- |1/27/2007 |24544 |39 |Large Box |Fellowes Neat Ideasï¿½ Storage Cubes|Storage & Organization|1780.00|Regular Air|
- + - - - - - + - - - - + - - - - - - - + - - - - - - - - -+ - - - - - - - - - - - - - - - - - + - - - - - - - - - - - + - - - -+ - - - - - -+
- only showing top 2 rows
+    +----------+--------+--------------+-----------------+----------------------------------+----------------------+-------+-----------+
+    |Order Date|Order ID|Order Quantity|Product Container|Product Name                      |Product Sub-Category  |Sales  |Ship Mode  |
+    +----------+--------+--------------+-----------------+----------------------------------+----------------------+-------+-----------+
+    |1/27/2007 |24544   |31            |Medium Box       |Canon MP41DH Printing Calculator  |Office Machines       |6567.00|Express Air|
+    |1/27/2007 |24544   |39            |Large Box        |Fellowes Neat Ideasï¿½ Storage Cubes|Storage & Organization|1780.00|Regular Air|
+    +----------+--------+--------------+-----------------+----------------------------------+----------------------+-------+-----------+
+    only showing top 2 rows
+
 
 ### Adding a New column to existing Spark dataframe
 
@@ -110,14 +111,15 @@ df_input = df_input.withColumn("Cost_per_order",round((col("Sales")/col("Order Q
 ```python
 df_input.show(2)
 ```
-+ - - - - - + - - - - + - - - - - - - + - - - - - - - - -+ - - - - - - - - - - + - - - - - - - - - - + - - - -+ - - - - - -+ - - - - - - - +
- |Order Date|Order ID|Order Quantity|Product Container| Product Name|Product Sub-Category| Sales| Ship Mode|Cost_per_order|
- + - - - - - + - - - - + - - - - - - - + - - - - - - - - -+ - - - - - - - - - - + - - - - - - - - - - + - - - -+ - - - - - -+ - - - - - - - +
- | 1/27/2007| 24544| 31| Medium Box|Canon MP41DH Prin…| Office Machines|6567.00|Express Air| 211.84|
- | 1/27/2007| 24544| 39| Large Box|Fellowes Neat Ide…|Storage & Organiz…|1780.00|Regular Air| 45.64|
- + - - - - - + - - - - + - - - - - - - + - - - - - - - - -+ - - - - - - - - - - + - - - - - - - - - - + - - - -+ - - - - - -+ - - - - - - - +
- only showing top 2 rows
 
+    +----------+--------+--------------+-----------------+--------------------+--------------------+-------+-----------+--------------+
+    |Order Date|Order ID|Order Quantity|Product Container|        Product Name|Product Sub-Category|  Sales|  Ship Mode|Cost_per_order|
+    +----------+--------+--------------+-----------------+--------------------+--------------------+-------+-----------+--------------+
+    | 1/27/2007|   24544|            31|       Medium Box|Canon MP41DH Prin...|     Office Machines|6567.00|Express Air|        211.84|
+    | 1/27/2007|   24544|            39|        Large Box|Fellowes Neat Ide...|Storage & Organiz...|1780.00|Regular Air|         45.64|
+    +----------+--------+--------------+-----------------+--------------------+--------------------+-------+-----------+--------------+
+    only showing top 2 rows
+    
 ### Rename an existing column
 
 ```python
@@ -148,30 +150,33 @@ df_rolled_up = df_input.groupBy(["Product_Container"]).\
 ```python
 df_rolled_up.show(3)
 ```
-+ - - - - - - - - -+ - - - - -+ - - - - - - - - - +
- |Product_Container|Sum_sales| Mean_cost|
- + - - - - - - - - -+ - - - - -+ - - - - - - - - - +
- | Small Box|8246744.0| 85.2778485665278|
- | Large Box|3197166.0| 545.6350529100528|
- | Medium Box|1165242.0|224.70029069767432|
- + - - - - - - - - -+ - - - - -+ - - - - - - - - - +
- only showing top 3 rows
-
+    +-----------------+---------+------------------+
+    |Product_Container|Sum_sales|         Mean_cost|
+    +-----------------+---------+------------------+
+    |        Small Box|8246744.0|  85.2778485665278|
+    |        Large Box|3197166.0| 545.6350529100528|
+    |       Medium Box|1165242.0|224.70029069767432|
+    +-----------------+---------+------------------+
+    only showing top 3 rows
+    
 ```python
 ## CROSS TAB 
 df_input.crosstab('Product_Container','Ship_Mode').show()
 ```
-+ - - - - - - - - - - - - - -+ - - - - - -+ - - - - - -+ - - - - - - +
- |Product_Container_Ship_Mode|Express Air|Regular Air||Express Air|
- + - - - - - - - - - - - - - -+ - - - - - -+ - - - - - -+ - - - - - - +
- | Large Box| 55| 323| 0|
- | Medium Box| 50| 294| 0|
- | Small Box| 568| 3513| 0|
- | Jumbo Box| 0| 0| 490|
- | Jumbo Drum| 0| 0| 573|
- | Small Pack| 113| 781| 0|
- | Wrap Bag| 135| 958| 0|
- + - - - - - - - - - - - - - -+ - - - - - -+ - - - - - -+ - - - - - - +
+
+    +---------------------------+-----------+-----------+------------+
+    |Product_Container_Ship_Mode|Express Air|Regular Air||Express Air|
+    +---------------------------+-----------+-----------+------------+
+    |                  Large Box|         55|        323|           0|
+    |                 Medium Box|         50|        294|           0|
+    |                  Small Box|        568|       3513|           0|
+    |                  Jumbo Box|          0|          0|         490|
+    |                 Jumbo Drum|          0|          0|         573|
+    |                 Small Pack|        113|        781|           0|
+    |                   Wrap Bag|        135|        958|           0|
+    +---------------------------+-----------+-----------+------------+
+    
+
 
 ### Joining Spark Dataframes
 
@@ -181,14 +186,16 @@ df_join = df_input.join(df_rolled_up, on=['Product_Container'], how="left")
 ```python
 df_join.show(3)
 ```
-+ - - - - - - - - -+ - - - - - + - - - - + - - - - - - - - - - - + - - - - - - - - - - + - - - - - - - - - - + - - - -+ - - - - - - + - - - - - - - + - - - - -+ - - - - - - - - - +
- |Product_Container|Order Date|Order ID|Order_Quantity_renamed| Product Name|Product Sub-Category| Sales| Ship_Mode|Cost_per_order|Sum_sales| Mean_cost|
- + - - - - - - - - -+ - - - - - + - - - - + - - - - - - - - - - - + - - - - - - - - - - + - - - - - - - - - - + - - - -+ - - - - - - + - - - - - - - + - - - - -+ - - - - - - - - - +
- | Medium Box| 1/27/2007| 24544| 31|Canon MP41DH Prin…| Office Machines|6567.00| Express Air| 211.84|1165242.0|224.70029069767432|
- | Large Box| 1/27/2007| 24544| 39|Fellowes Neat Ide…|Storage & Organiz…|1780.00| Regular Air| 45.64|3197166.0| 545.6350529100528|
- | Jumbo Drum| 1/27/2007| 24544| 15|Global Stack Chai…| Chairs & Chairmats| 578.00||Express Air| 38.53|5382756.0|463.28827225130897|
- + - - - - - - - - -+ - - - - - + - - - - + - - - - - - - - - - - + - - - - - - - - - - + - - - - - - - - - - + - - - -+ - - - - - - + - - - - - - - + - - - - -+ - - - - - - - - - +
- only showing top 3 rows
+
+    +-----------------+----------+--------+----------------------+--------------------+--------------------+-------+------------+--------------+---------+------------------+
+    |Product_Container|Order Date|Order ID|Order_Quantity_renamed|        Product Name|Product Sub-Category|  Sales|   Ship_Mode|Cost_per_order|Sum_sales|         Mean_cost|
+    +-----------------+----------+--------+----------------------+--------------------+--------------------+-------+------------+--------------+---------+------------------+
+    |       Medium Box| 1/27/2007|   24544|                    31|Canon MP41DH Prin...|     Office Machines|6567.00| Express Air|        211.84|1165242.0|224.70029069767432|
+    |        Large Box| 1/27/2007|   24544|                    39|Fellowes Neat Ide...|Storage & Organiz...|1780.00| Regular Air|         45.64|3197166.0| 545.6350529100528|
+    |       Jumbo Drum| 1/27/2007|   24544|                    15|Global Stack Chai...|  Chairs & Chairmats| 578.00||Express Air|         38.53|5382756.0|463.28827225130897|
+    +-----------------+----------+--------+----------------------+--------------------+--------------------+-------+------------+--------------+---------+------------------+
+    only showing top 3 rows
+    
 
 ### Spark-SQL
 Sometimes, while performing data transformations or while writing complex feature engineering codes, we wonder that if we could use SQL here, we would have done this very easily and quickly. Pyspark got this enabled for you via its Spark-SQL API
@@ -224,14 +231,15 @@ sql_demo = spark.sql('''
  ''')
 sql_demo.show(3)
 ```
-+ - - - - - - - - -+ - - - - -+ - - - - - - - - - +
- |Product_Container|Sales_sum| mean_cost|
- + - - - - - - - - -+ - - - - -+ - - - - - - - - - +
- | Small Box|8246744.0| 85.2778485665278|
- | Large Box|3197166.0| 545.6350529100528|
- | Medium Box|1165242.0|224.70029069767432|
- + - - - - - - - - -+ - - - - -+ - - - - - - - - - +
- only showing top 3 rows
+
+    +-----------------+---------+------------------+
+    |Product_Container|Sales_sum|         mean_cost|
+    +-----------------+---------+------------------+
+    |        Small Box|8246744.0|  85.2778485665278|
+    |        Large Box|3197166.0| 545.6350529100528|
+    |       Medium Box|1165242.0|224.70029069767432|
+    +-----------------+---------+------------------+
+    only showing top 3 rows
 
 ```python
 type(sql_demo)
@@ -309,11 +317,17 @@ Let's take an example of a server which maintains daily visitor details for a sh
 
 #### Repartitioning Spark DataFrame
 The default partition size is 200 in PySpark. What this means is - Let's say you load a dataset with 1000 partition of irregular/ Regular size, spark will reduce the partition count to 200 resulting in bigger/smaller output partition size depending upon input partition size.
+
 Input Data
+
 $${Number of Partitions} = 1000$$
+
 $${ Partition Size } = 100 MB$$
+
 Output Spark Dataframe
+
 $${Number of Partitions} = 200$$
+
 $${ Partition Size } = 500 MB$$
 
 Repartioning is a doube ended sword. In the above example, higher partition size could result in **Executor memory exceeded error** if the executor core memory is less than **500MB**
