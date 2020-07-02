@@ -199,6 +199,7 @@ df_join.show(3)
 
 ### Spark-SQL
 Sometimes, while performing data transformations or while writing complex feature engineering codes, we wonder that if we could use SQL here, we would have done this very easily and quickly. Pyspark got this enabled for you via its Spark-SQL API
+
 Let's try to write some SQL queries using the above Spark table as the underlying SQL Table
 
 ```python
@@ -215,7 +216,9 @@ The above-Commented query would give this Error 
 - *Py4JJavaError: An error occurred while calling o38.sql.
 : org.apache.spark.sql.AnalysisException: Table or view not found: df_input; line 4 pos 21*
  
+ 
 This is because, we did not register our spark dataframe as a SQL table.
+
 Following command would register the table to be used in SQL queries
 
 #### SparkDataframe.createOrReplaceTempView("View Name")
@@ -246,7 +249,8 @@ type(sql_demo)
 ```
 
 pyspark.sql.dataframe.DataFrame
-Note: The output of a Spark-SQL is again a Spark data frame and requires registry as SQL table before being used in any SQL query
+
+**Note**: The output of a Spark-SQL is again a Spark data frame and requires registry as SQL table before being used in any SQL query
 
 #### Few thoughts on Spark-SQL
 
@@ -313,6 +317,7 @@ But, this conversion is a very computationally expensive operation and should be
 The main advantage of Spark is its faster and scalable computation as compared to other Hadoop based distributed frameworks like Map-Reduce.
 Along with this, Spark provides a lot of flexibility to the User in the form of user commands using which users can speed up the queries.
 This becomes very prudential while working with big datasets stored as partitioned flat files with irregular partition size.
+
 Let's take an example of a server which maintains daily visitor details for a shopping mall partitioned at Date Level. It is very obvious to have irregular partition size with more big partitions for weekends over weekdays. Map-Reduce does not adjust these irregular partition sizes resulting in few mappers lagging behind others.
 
 #### Repartitioning Spark DataFrame
@@ -333,6 +338,7 @@ $${ Partition Size } = 500 MB$$
 Repartioning is a doube ended sword. In the above example, higher partition size could result in **Executor memory exceeded error** if the executor core memory is less than **500MB**
 
 In such cases, there is merit in increasing the partition count and ultimately reducing the partition size
+
 *Data_repartioned = Dataframe.rdd.repartition(n)*
 
 ```python
@@ -471,7 +477,9 @@ Help on function pca_function in module __main__:
 
 PySpark is a library that has matured a lot in the last 2 years and now it allows end to end machine learning pipeline. Starting from data loading to data wrangling to model 
 development, everything can be done in PySpark.
+
 On top of this, PySpark is also capable of simulating famous ML Libraries such as **H2O** as Sparkling Water API
+
 I personally find PySpark very handy as it allows me to write all my codes in 1 language by leveraging different data sources such as SQL/ Hive / Flat files.
 Users can write a lot of executor level UDFs hereby reducing the runtime significantly
 
