@@ -8,7 +8,7 @@ categories: misc
 1. Basic terminology associated with PySpark
 2. Basic commands of PySpark
 3. Using SQL in PySpark
-4. Using Pandas and Spark operations on same dataframe
+4. Using Pandas and Spark operations on same Dataframe
 5. Data Compression techniques
 6. Code optimization techniques - Repartitioning & Caching
 7. Complex programs such as PCA
@@ -25,14 +25,14 @@ As compared to the disk-based, two-stage MapReduce of Hadoop, Spark provides up 
 </p>
 
 ## PySpark
-PySpark is an Python API to support Apache Spark. In a PySpark code, developers have the liberty to use Spark , Python , SQL commands hence makes it a perfect programming lanaguage for machine learning development
+PySpark is a Python API to support Apache Spark. In a PySpark code, developers have the liberty to use Spark , Python , SQL commands hence makes it a perfect programming lanaguage for machine learning development
 
 If you’re already familiar with Python and libraries such as Pandas, then PySpark is a great language to learn in order to create more scalable analyses and pipelines
 
 #### Before, we get started with the basics of PySpark programming, let's discuss some key terms associated with Spark framework.
 
 ### Resilient Distributed Datasets (RDD)
-RDD’s are collection of data items that are split into partitions and can be stored in-memory on workers nodes of the spark cluster. In terms of datasets, apache spark supports two types of RDD’s – Hadoop Datasets which are created from the files stored on HDFS and parallelized collections which are based on existing Scala collections. Spark RDD’s support two different types of operations – Transformations and Actions.
+RDD’s are collection of data items that are split into partitions and can be stored in-memory on workers nodes of the spark cluster. In terms of datasets, Apache Spark supports two types of RDD’s – Hadoop Datasets which are created from the files stored on HDFS and parallelized collections which are based on existing Scala collections. Spark RDD’s support two different types of operations – Transformations and Actions.
 
 <p align="center">
   <img width="500" height="300" src="https://raw.githubusercontent.com/Satwant201/Satwant201.github.io/master/Images/rdd_diag.PNG">
