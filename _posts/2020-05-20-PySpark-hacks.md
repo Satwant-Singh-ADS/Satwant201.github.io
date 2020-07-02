@@ -100,7 +100,7 @@ Reading a Flat file
 
 
 ```python
-df_input = spark.read.format("csv").option("header", "true").load("/datalake/uhc/ei/pi_ara/sherlock/development/hdc_cosmos/COB_SWING/website/09_Inventory.txt",sep='\t')
+df_input = spark.read.format("csv").option("header", "true").load("09_Inventory.txt",sep='\t')
 ```
 
 
