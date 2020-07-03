@@ -183,7 +183,7 @@ df_input.crosstab('Product_Container','Ship_Mode').show()
 Just like in Pandas or normal SQL querying , we tend to join dataframes, this can also be done very easily using Spark.
 
 **Syntax :**
-Output Data Frame = First_DataFrame.join(second_DataFrame>,on=\[List of joining keys\],how=(join type))
+Output Data Frame = First_DataFrame.**join**(second_DataFrame>,**on=**\[List of joining keys\],**how=**(join type))
 
 ```python
 df_join = df_input.join(df_rolled_up, on=['Product_Container'], how="left")
