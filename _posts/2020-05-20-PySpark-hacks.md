@@ -41,7 +41,7 @@ RDD's are a collection of data items that are split into partitions and can be s
 As the name itself indicates its definition, lazy evaluation in Spark means that the execution will not start until an action is triggered. For example, we filter a dataset. The filtering will not actually take place until the user expects the output such as Count after filtering or exporting the filtered dataset to disk.
 
 ### Action
-Spark Action is the operation where Spark will actually compute the underlying flow of the sequence.
+Spark Action is the operation where Spark will actually compute the underlying flow of the sequence. Let's say exporting the results of a spark function , printing top rows of a dataframe or as simple as a count statement where User expects the output in one form or the other.
 To better understand the concept of Lazy Evaluation and Action, let's take an example of the following code
 
 ```python
@@ -180,6 +180,9 @@ df_input.crosstab('Product_Container','Ship_Mode').show()
 
 ### Joining Spark Dataframes
 
+Just like in Pandas or normal SQL querying , we tend to join dataframes, this can also be done very easily using Spark.
+
+
 ```python
 df_join = df_input.join(df_rolled_up, on=['Product_Container'], how="left")
 ```
@@ -195,7 +198,8 @@ df_join.show(3)
     |       Jumbo Drum| 1/27/2007|   24544|                    15|Global Stack Chai...|  Chairs & Chairmats| 578.00||Express Air|         38.53|5382756.0|463.28827225130897|
     +-----------------+----------+--------+----------------------+--------------------+--------------------+-------+------------+--------------+---------+------------------+
     only showing top 3 rows
-    
+
+Here I have joined the dataframes using **Left join**, You can use Right/Inner and all other types of join conditions which you otherwise find in other programming languages.
 
 ### Spark-SQL
 Sometimes, while performing data transformations or while writing complex feature engineering codes, we wonder that if we could use SQL here, we would have done this very easily and quickly. Pyspark got this enabled for you via its Spark-SQL API
