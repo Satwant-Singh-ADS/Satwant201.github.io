@@ -42,26 +42,26 @@ Lets introduce a new formula for calculating Risk
 
 $$
 \boxed{
-{Risk} =\frac{({Errors}_{category}+0.5)}{({Frequency}_{category}+(\frac{0.5}{({Error}_{population}/{Frequency}_{population})}))}
+{Risk} =\frac{({Errors\_}_{category}+0.5)}{({Frequency\_}_{category}+(\frac{0.5}{({Error\_}_{population}/{Frequency\_}_{population})}))}
 }
 $$
 
-where $$ {Errors}_{category} $$ is the count of observations where an event happened for category,
+where $$ {Errors\_}_{category} $$ is the count of observations where an event happened for category,
 
-$$ {Frequency}_{category} $$ is the count of total observations where that category occured,
+$$ {Frequency\_}_{category} $$ is the count of total observations where that category occured,
 
-$$ {Error}_{population} $$ is the count of observations where an event happened in overall training dataset,
+$$ {Error\_}_{population} $$ is the count of observations where an event happened in overall training dataset,
 
-$$ {Frequency}_{population} $$ is the count of total observations in the training datset
+$$ {Frequency\_}_{population} $$ is the count of total observations in the training datset
 
 Using the above formula, lets evaluate the risks for the two doctors under experiment
 
 $$
-{DocA}_{risk}  :(10+0.5)/(100+(0.5/(11/102) = 0.1003
+{DocA\_}_{risk}  :(10+0.5)/(100+(0.5/(11/102) = 0.1003
 $$
   
 $$
-{DocB}_{risk}  :(1+0.5)/(2+(0.5/(11/102) = 0.226
+{DocB\_}_{risk}  :(1+0.5)/(2+(0.5/(11/102) = 0.226
 $$
 
 If you noticed, risk value for A was not affected much but risk for B was reduced significantly and at same time was still higher than A. This way, we not only smoothen the risk value but also carry the essence of the actual risk
