@@ -42,17 +42,17 @@ Lets introduce a new formula for calculating Risk
 
 $$
 \boxed{
-{Risk} =\frac{({Errors\_}_{category}+0.5)}{({Frequency\_}_{category}+(\frac{0.5}{({Error\_}_{population}/{Frequency\_}_{population})}))}
+{Risk} =\frac{({Errors}_{category}+0.5)}{({Frequency}_{category}+(\frac{0.5}{({Error}_{population}/{Frequency}_{population})}))}
 }
 $$
 
-where $$ {Errors\_}_{category} $$ is the count of observations where an event happened for category,
+where $$ {Errors}_{category} $$ is the count of observations where an event happened for category,
 
-$$ {Frequency\_}_{category} $$ is the count of total observations where that category occured,
+$$ {Frequency}_{category} $$ is the count of total observations where that category occured,
 
-$$ {Error\_}_{population} $$ is the count of observations where an event happened in overall training dataset,
+$$ {Error}_{population} $$ is the count of observations where an event happened in overall training dataset,
 
-$$ {Frequency\_}_{population} $$ is the count of total observations in the training datset
+$$ {Frequency}_{population} $$ is the count of total observations in the training datset
 
 Using the above formula, lets evaluate the risks for the two doctors under experiment
 
