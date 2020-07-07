@@ -42,7 +42,7 @@ Lets introduce a new formula for calculating Risk
 
 $$
 \boxed{
-{Risk} =\frac{({Errors\_}_{category}+0.5)}{({Frequency}_{category}+(\frac{0.5}{({Error}_{population}/{Frequency}_{population})}))}
+{Risk} =\frac{({Errors}_{category}+0.5)}{({Frequency}_{category}+(\frac{0.5}{({Error}_{population}/{Frequency}_{population})}))}
 }
 $$
 
