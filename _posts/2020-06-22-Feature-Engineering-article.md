@@ -57,11 +57,12 @@ $$ {Frequency}_{population} $$ is the count of total observations in the trainin
 Using the above formula, lets evaluate the risks for the two doctors under experiment
 
 $$
-{DocA\_}_{risk}  :(10+0.5)/(100+(0.5/(11/102) = 0.1003
+{DocA\_}_{risk}  :\frac{(10+0.5)}{(100+(\frac{0.5}{(11/102)}))} = 0.1003
 $$
+
   
 $$
-{DocB\_}_{risk}  :(1+0.5)/(2+(0.5/(11/102) = 0.226
+{DocB\_}_{risk}  :\frac{(1+0.5)}{(2+(\frac{0.5}{(11/102)}))} = 0.226
 $$
 
 If you noticed, risk value for A was not affected much but risk for B was reduced significantly and at same time was still higher than A. This way, we not only smoothen the risk value but also carry the essence of the actual risk
