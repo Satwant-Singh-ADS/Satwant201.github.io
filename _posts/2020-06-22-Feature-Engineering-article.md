@@ -91,7 +91,7 @@ $$ Entropy =\boxed{-\biggl(\sum_{i=1}^{n}\frac{x_{i}}{w}*log(\frac{x_{i}}{w})\bi
 
 where $$ n $$ is maximum number of child column values across which occured for a parent column.
 
-$$ w $$ defines frequency at which parent column occured.
+$$ w $$ defines frequency at which parent column occured
 
 $${x}_{i}$$ defines the frequency at which parent column and child column interaction occured
 
