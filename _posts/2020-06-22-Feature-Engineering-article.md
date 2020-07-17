@@ -79,7 +79,7 @@ Periodic refresh of these Risk features helps the "Deployed" production model to
 #### Missing Value Imputation
 It is generally recommended to impute missing values with the overall risk value for the month 
 
-$$ {Risk}_{gen} : {Error}_{count}/{Observations} $$
+$$ {Risk}_{gen} : \frac{{Error}_{count}}{{Observations}} $$
 
 
 
