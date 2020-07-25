@@ -81,12 +81,12 @@ In the above decision tree, it is difficult to isolate the anomaly points which 
 Let’s add some technical terminology to illustrate what I just talked about.
 
 #### Swamping
-Swamping : Since anomalies are very rare events ( ~0.1 % to 1% ), it makes it very difficult for any machine learning algorithm to predict this rare class with very high accuracy. Swamping is a phenomenon of labelling a normal point as anomaly. The problem becomes graver, when an action or investigation is triggered basis this faulty model and businesses loose trust in such anomaly detection engines.
+Since anomalies are very rare events ( ~0.1 % to 1% ), it makes it very difficult for any machine learning algorithm to predict this rare class with very high accuracy. Swamping is a phenomenon of labelling a normal point as anomaly. The problem becomes graver, when an action or investigation is triggered basis this faulty model and businesses loose trust in such anomaly detection engines.
 
 ## *"It is better 100 guilty Persons should escape than that one innocent Person should suffer”- Benjamin Franklin*
 
 #### Masking
-Masking: In this phenomena, the anomaly points are classified as normal data points by the model. This issue is more prevalent when using clustering algorithms to identify anomalies and the fraud clusters get merged with normal data point clusters.
+In this phenomena, the anomaly points are classified as normal data points by the model. This issue is more prevalent when using clustering algorithms to identify anomalies and the fraud clusters get merged with normal data point clusters.
 
 Any anomaly detection should be immune to both swamping and masking.
 
@@ -100,7 +100,7 @@ It does not rely upon any data profiling or point based distance calculation ( s
 ### There are already few articles/blogs on the working of the Isolation Forest algorithm. 
 You can read more about it <a href="https://towardsdatascience.com/outlier-detection-with-isolation-forest-3d190448d45e">here</a>
 
-### How Isolation forest handles swamping and masking
+### How Isolation forest handles swamping and masking?
 
 Isolation forest does a wonderful job in minimizing the impact of swamping and masking by making use of subsampling techniques.
 
@@ -110,7 +110,7 @@ When the size of dataset is huge, the normal instances which constitute more tha
 The Below scatter plot explains the issues associated with using large dataset.
 
 <p align="center">
-  <img width="400" height="400" src="https://raw.githubusercontent.com/Satwant201/Satwant201.github.io/master/Images/If2.PNG">
+  <img width="300" height="300" src="https://raw.githubusercontent.com/Satwant201/Satwant201.github.io/master/Images/If2.PNG">
 </p>
 
 
@@ -118,7 +118,7 @@ Here subsampling comes to our rescue.  Since each tree within the ensemble Isola
 
 The Below plot demonstrates how subsampling helps in isolating anomaly points from the normal population
 <p align="center">
-  <img width="400" height="400" src="https://raw.githubusercontent.com/Satwant201/Satwant201.github.io/master/Images/IF3.PNG">
+  <img width="300" height="300" src="https://raw.githubusercontent.com/Satwant201/Satwant201.github.io/master/Images/IF3.PNG">
 </p>
 
 
