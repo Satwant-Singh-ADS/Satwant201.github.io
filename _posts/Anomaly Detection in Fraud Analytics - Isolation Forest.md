@@ -1,11 +1,9 @@
 ---
 layout: post
-title: "Anomaly Detection in Fraud Analytics :Isolation Forest"
+title: "Anomaly Detection in Fraud Analytics using Isolation Forest"
 categories: misc
 ---
 % include lib/mathjax.html %}
-
-# Anomaly Detection using Isolation Forest
 
 ## Outline of the blog
 
