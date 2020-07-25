@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Anomaly Detection in Fraud Analytics using Isolation Forest"
+title: "Introduction to Anomaly Detection in Fraud Analytics using Isolation Forest"
 categories: misc
 ---
 {% include lib/mathjax.html %}
@@ -42,7 +42,7 @@ Anomaly is basically the data point of interest because its behavior is differen
 Anomaly detection can play a vital role in identification of several known fraud types in various industries. 
 At the same time, it can also help in identifying unknown fraud patterns in the industry.
 
-*Common applications of anomaly detection are identification of following industry concern:*
+**Common applications of anomaly detection are identification of following industry concerns:**
 
 1.	Credit card Fraud in retail banking
 
@@ -53,11 +53,11 @@ At the same time, it can also help in identifying unknown fraud patterns in the 
 4.	Money laundering
 
 Note that each of these applications would require different approaches in terms of data preparation and data 
-modelling because a true fraud label in one application could be noise in another.
+modeling because a true fraud label in one application could be noise in another.
 
 ### Supervised vs Unsupervised Anomaly detection methods
 
-Supervised learning is the scenario in which the model is trained on the labeled data, and trained model will predict the unseen data. Here the main assumption is that we already have true “red Labels” or what we call true fraud labels in our dataset. This is possible in scenarios the when fraud is reported out by the victim. For example, a credit card fraud where the customer calls out a certain transaction as being fraudulent.
+Supervised learning is the scenario in which the model is trained on the labeled data, and trained model will predict the unseen data. Here the main assumption is that we already have true “red Labels” or what we call true fraud labels in our dataset. This is possible in scenarios when fraud is reported out by the victim. For example, a credit card fraud where the customer calls out a certain transaction as being fraudulent.
 
 #### Some of the modeling techniques:
 1.	Random Forest
