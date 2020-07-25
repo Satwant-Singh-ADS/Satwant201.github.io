@@ -1,3 +1,11 @@
+---
+layout: post
+title: "PySpark By Example"
+categories: misc
+---
+
+{% include lib/mathjax.html %}
+
 ##Outline of the blog
 * Introduction : What is Anomaly Detection and what methods are used?
 * Applications of AD in Banking and other payments related businesses
