@@ -1,3 +1,5 @@
+
+
 ## Outline of the blog
 
 * Introduction : What is Anomaly Detection and what methods are used?
