@@ -23,7 +23,7 @@
 Anomaly is basically the data point of interest because its behavior is different from the rest of the observations in the Dataset. 
 
 <p align="center">
-  <img width="600" height="200" src="https://t3.ftcdn.net/jpg/03/25/98/28/240_F_325982815_jZJbxVlH1hNXv2EyAUddo4qbmsp3V8l4.jpg">
+  <img width="500" height="250" src="https://t3.ftcdn.net/jpg/03/25/98/28/240_F_325982815_jZJbxVlH1hNXv2EyAUddo4qbmsp3V8l4.jpg">
 </p>
 
 ### Applications of AD in Banking and other payments related businesses
@@ -66,7 +66,7 @@ Before we get started with Isolation forest, let’s talk about few challenges o
 Contrary to the general perception that more the amount of data, better the model would perform, when it comes to anomaly detection using let’s say single class SVM or K-Means clustering, there is a high possibility that we end up predicting a normal data point as anomaly and an anomaly as a normal data point. Strange?
 
 <p align="center">
-  <img width="600" height="200" src="https://t3.ftcdn.net/jpg/03/25/98/28/240_F_325982815_jZJbxVlH1hNXv2EyAUddo4qbmsp3V8l4.jpg">
+  <img width="400" height="250" src="https://raw.githubusercontent.com/Satwant201/Satwant201.github.io/master/Images/image001.png">
 </p>
 
 In the above decision tree, it is difficult to isolate the anomaly points which lie at a very high depth leaf node.
@@ -90,8 +90,8 @@ Isolation Forest is an ensemble regressor and it uses the concept of isolation t
 It does not rely upon any data profiling or point based distance calculation ( spatial distance approach ), instead, Isolation forest (IF) builds an ensemble of highly randomized trees for a given data set and defines anomalies as the points with shortest average path lengths.
 
 
-### There are already few articles/blogs on the working of the Isolation Forest algorithm. You can read more about it
-<a href="https://towardsdatascience.com/outlier-detection-with-isolation-forest-3d190448d45e">here</a>
+### There are already few articles/blogs on the working of the Isolation Forest algorithm. 
+You can read more about it <a href="https://towardsdatascience.com/outlier-detection-with-isolation-forest-3d190448d45e">here</a>
 
 ### How Isolation forest handles swamping and masking
 
@@ -103,7 +103,7 @@ When the size of dataset is huge, the normal instances which constitute more tha
 The Below scatter plot explains the issues associated with using large dataset.
 
 <p align="center">
-  <img width="600" height="200" src="https://t3.ftcdn.net/jpg/03/25/98/28/240_F_325982815_jZJbxVlH1hNXv2EyAUddo4qbmsp3V8l4.jpg">
+  <img width="400" height="400" src="https://raw.githubusercontent.com/Satwant201/Satwant201.github.io/master/Images/If2.PNG">
 </p>
 
 
@@ -111,7 +111,7 @@ Here subsampling comes to our rescue.  Since each tree within the ensemble Isola
 
 The Below plot demonstrates how subsampling helps in isolating anomaly points from the normal population
 <p align="center">
-  <img width="600" height="200" src="https://t3.ftcdn.net/jpg/03/25/98/28/240_F_325982815_jZJbxVlH1hNXv2EyAUddo4qbmsp3V8l4.jpg">
+  <img width="400" height="400" src="https://raw.githubusercontent.com/Satwant201/Satwant201.github.io/master/Images/IF3.PNG">
 </p>
 
 
