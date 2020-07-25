@@ -23,7 +23,11 @@ categories: misc
 
 ### What is Anomaly Detection and what methods are used?
 
-                        $$\boxed{Anomaly = Outlier = Deviant = Unusual Data Point}$$
+$$
+\boxed{
+Anomaly = Outlier = Deviant = Unusual Data Point
+}
+$$
 
 **Anomaly detection**, also known as outlier detection, is the process of identifying extreme points or observations that are significantly deviating from the remaining data.
 
