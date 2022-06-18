@@ -1,0 +1,414 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
+from pyspark.sql.functions import isnan,isnull,col,count,when,countDistinct,trim,approxCountDistinct,regexp_extract
+import time
+import pandas as pd
+import numpy as np
+from pyspark.ml.feature import VectorAssembler
+from pyspark.ml.stat import Correlation
+import seaborn as sns
+import matplotlib.pyplot as plt
+from pyspark.mllib.stat import Statistics
+from pyspark.sql.types import NumericType,DoubleType
+from pyspark import StorageLevel
+import os
+import requests
+import pyspark
+from pyspark.sql import SparkSession
+from pyspark.sql import SQLContext 
+from pyspark.mllib.stat import Statistics
+from pyspark.sql.types import NumericType,DoubleType
+from pyspark import StorageLevel
+from scipy.stats import boxcox
+from matplotlib.backends.backend_pdf import PdfPages
+
+
+# In[32]:
+
+
+def FindStatistics(data,OutputFileName,OutputPath,emailTo,corMatrix=True,changeType=True,cardinality=20,dropColumns=[],cache=True):
+    
+    """ Calculate Basic Statistics for each column in a pyspark dataframe
+        Function expects a pyspark dataframe as input
+        Other than that user has option to drop columns, change datatype 
+        based on cardinality and find correlation matrix. 
+        
+
+        
+        Function Arguments:
+        
+        data = Any Pyspark dataframe
+        OutputFileName= Name you want to give to the output excel file
+        OutputPath= Path where you want to store your output file.
+        emailTo= string of email addresses seperated by comma .
+        corMatrix (default= True) = If set to True function calculates correlation b/w numerical variables. Values(True/False)
+        ChangeType (default= True) = Cast string columns to numeric if possible and also 
+                                     numerical columns to categorical columns based on cardinality.Values(True/False)
+        dropColumns = List of columns tobe dropped from dataframe
+        cardinality (default=20) = Number of unique values in a column less than which it should be casted to categorical column 
+        cache(default= True) = whether data to be cached. Values(True/False)
+        
+        
+        
+        Output:
+        
+        The function generates an excel file with sample data, statistics and correlation matrix. 
+        
+        **In statistics sheet columns marked orange are either constant columns(highlighted with yellow) 
+        or have missing per > 80 (higlighted with red)
+        
+        """
+    
+    #print("Dataset has {} rows and {} columns" .format(data.count(), len(data.columns)))
+    if cache == True:
+        data=data.persist(StorageLevel.MEMORY_AND_DISK)
+    else:
+        pass
+    t1=time.time()
+    
+    ###Drop columns mentioned by user
+    data=data.drop(*dropColumns)
+
+    numCols=[]
+    catCols=[]
+    ### Segregate string and numeric columns
+    for x in data.columns:
+        if dict(data.dtypes)[x]=="date":
+            data=data.withColumn(x,col(x).cast("string"))
+        if dict(data.dtypes)[x]=="string":
+            data=data.withColumn(x,trim(col(x)))
+            catCols.append(x)
+        else:
+            numCols.append(x)
+    #t2= time.time()
+    ## count distinct elements in every column
+    dictd={}
+    for x in data.columns:
+        #print(x)
+        dictd[x]=data.select(x).distinct().count()
+    print("Distinct Count For Each Column Completed")    
+    #t3=time.time()
+    #print("distinct count time {}".format(t3-t2))
+    
+    if changeType==True:
+        
+        ###Check if a categorical column is continous and cast it
+        data10=data.sample(False,0.1,25)
+        for x in data.columns:
+            if dict(data.dtypes)[x]=='string':
+
+                #df=data.withColumn(x,col(x).cast(DoubleType()))
+                df=data10.withColumn(x,col(x).cast(DoubleType()))
+
+                if((df.select(count(when(isnan(x) | isnull(x),x))).first()[0]) == (data10.select(count(when(isnan(x) | isnull(x),x))).first()[0])):
+                    data=data.withColumn(x,col(x).cast(DoubleType()))
+                    numCols.append(x)
+                    catCols.remove(x)
+                    #print("{} is converted to continous column".format(x))
+
+                else:
+                    pass
+        print("Columns converted to numeric")        
+        ### Change datatype based on cardinality
+        for x in numCols:
+            if dictd[x]< cardinality:  
+                numCols.remove(x)
+                catCols.append(x)
+                data=data.withColumn(x,data[x].cast("string"))
+                #print("{} is converted to categorical column".format(x))
+        print("Columns converted to numeric  based on cardinality")
+ 
+    ## Check Datatypes of Columns
+    dataTypes=pd.DataFrame(dict(data.dtypes),index=['Datatype',])
+    print("Datatypes Check Complete")
+    #t5=time.time()
+    ##Missing Values
+    missingRows=data.select([count(when(isnan(c) | isnull(c) | (col(c) == "") ,c)).alias(c) for c in data.columns]).toPandas()
+    when(col(x) != "", col(x)).otherwise(None)
+    missingRows.index=["No_of_Missing_Values"]
+    print("Missing Values Calculation Complete")
+    #t6=time.time()
+    #print("missing Rows time {}".format(t6-t5))
+    
+    ## Append missingRows and dataTypes
+    dataStats= missingRows.append(dataTypes)
+        
+    distinctRows=pd.DataFrame(dictd,index={"Distinct_Values",})
+    print("Distinct Rows")
+    
+    ##Append distinctRows to dataStats
+    datastatNew=dataStats.append(distinctRows)
+    ## Calculate Summary of Numerical Data        
+    summaryData=data.describe(numCols).toPandas()
+    summaryData.set_index("summary",inplace=True)
+    print("Summary Statistics for Numerical Columns Complete")
+
+    #print("Summary Numerical Data")
+    ##t7=time.time()
+    ### Calculate percentiles for numerical columns
+    ##perData=pd.DataFrame(data.stat.approxQuantile(numCols,(0.25,0.75),0),columns=['0.25','0.75'],index=numCols).transpose()
+    ##print("Percentiles")
+    #t7=time.time()
+    #print("missing Rows time {}".format(t7-t6))
+    ### Basic Statistics for numerical data
+    #numericalStat=summaryData.append(perData)
+    numericalStat=summaryData
+    ###
+    totalDataNew=numericalStat.append(datastatNew).transpose()
+    totalDataNew.reset_index(inplace=True)
+    totalDataNew.rename(columns={'index':'Column_Name'},inplace=True)
+    
+    
+    ##Calucalte mode of categorical data
+    
+    modeData=[[i,data.groupby(i).count().orderBy("count", ascending=False).first()[0]] for i in catCols]
+        
+    catData=pd.DataFrame(modeData, columns=["Column_Name","Mode"])
+    
+
+    #print("Mode of Data")
+    
+    ####
+    statisticalData= totalDataNew.merge(catData,how='left')
+    statisticalData['count']= data.count()-statisticalData['No_of_Missing_Values']
+    statisticalData['Row_Count']=data.count()
+    statisticalData["Percent_Missing"]=statisticalData["No_of_Missing_Values"]/statisticalData['Row_Count']
+    statisticalData.rename(columns= {"count":"Non_Null_Count"},inplace= True)
+    #statisticalData= statisticalData[["Column_Name","Datatype","Row_Count","Non_Null_Count","Distinct_Values","No_of_Missing_Values","Percent_Missing","mean","stddev","min","max","0.25","0.75","Mode"]]
+    statisticalData= statisticalData[["Column_Name","Datatype","Row_Count","Non_Null_Count","Distinct_Values","No_of_Missing_Values","Percent_Missing","mean","stddev","min","max","Mode"]]
+
+    def color(x):
+        c1 = 'background-color: yellow'
+        c2 = 'background-color: red'
+        c3 = 'background-color: orange'
+        c = '' 
+        #compare columns
+        mask1 = x['Distinct_Values'] == 1
+        mask2 = x['Percent_Missing']>0.80
+        both = mask1 | mask2
+        #DataFrame with same index and columns names as original filled empty strings
+        df1 =  pd.DataFrame(c, index=x.index, columns=x.columns)
+
+        #modify values of df1 column by boolean mask
+        df1.loc[mask1, 'Distinct_Values'] = c1
+        df1.loc[mask2, 'Percent_Missing'] = c2
+        df1.loc[both, 'Column_Name'] = c3
+        #df1.loc[mask2, :] = c4
+        return df1
+    nullColumns=list(statisticalData['Column_Name'][statisticalData['No_of_Missing_Values']==data.count()])
+    constantCols=list(statisticalData['Column_Name'][statisticalData['Distinct_Values']==1])
+    colsToRemove=nullColumns + constantCols
+    statisticalData=statisticalData.style.apply(color,axis=None)
+    
+    
+    data= data.fillna(0)
+    nonNullColumns=[i for i in numCols if i not in colsToRemove]
+    
+    correlationMatrix=[]
+    if (corMatrix==True):
+        vector_col = "corr_features"
+        assembler = VectorAssembler(inputCols=nonNullColumns, outputCol=vector_col)
+        df_vector = assembler.transform(data).select(vector_col)
+        matrix = Correlation.corr(df_vector, vector_col, method='pearson')
+        result = matrix.collect()[0]["pearson({})".format(vector_col)].values
+        correlationMatrix=pd.DataFrame(result.reshape(-1, len(nonNullColumns)), columns=nonNullColumns, index=nonNullColumns)
+        plt.rcParams["figure.figsize"]=15,15
+#         sns.heatmap(correlationMatrix,annot=True,fmt='.1g',vmin=-1,vmax=1,center=0,cmap='BrBG')
+#         plt.show()
+        correlationMatrix=correlationMatrix.style.set_properties(**{'color':'white'}).background_gradient(cmap='coolwarm').set_properties(**{'font-size': '20px'})
+        print("Correlation Matrix Calculated")
+    t9=time.time()
+    print("total time taken {}".format(t9-t1))
+    
+    file=OutputPath+OutputFileName+'.xlsx'
+    writer = pd.ExcelWriter(file, engine='xlsxwriter')
+    
+    ##Table Information
+    tableDict={'Row Count':data.count(), 'Column Count':len(data.columns),'No Of Cat Col':len(catCols),'No Of Num Col':len(numCols),'No Of Const Col':len(colsToRemove) }
+        
+    ### Sample data to be exported to second sheet 
+    sampleData=pd.DataFrame(data.head(100),columns= data.columns)
+    
+    sampleData.to_excel(writer,sheet_name="SampleData",index=False,header=False)
+    # Get the xlsxwriter workbook and worksheet objects.
+    workbook  = writer.book
+    worksheet = writer.sheets['SampleData']
+
+    # Add a header format.
+    header_format = workbook.add_format({
+        'bold': True,
+        'text_wrap': False,
+        'valign': 'top',
+        'fg_color': '#D7E4BC',
+        'border': 1})
+
+    # Write the column headers with the defined format.
+    for col_num, value in enumerate(data.columns):
+        worksheet.write(0, col_num, value, header_format)
+
+    
+    statisticalData.to_excel(writer,sheet_name="Statistics",index=False,header=False)
+
+    ### Third Sheet
+    # Get the xlsxwriter workbook and worksheet objects.
+    #workbook  = writer.book
+    worksheet = writer.sheets['Statistics']
+
+    # Add a header format.
+    header_format = workbook.add_format({
+        'bold': True,
+        'text_wrap': False,
+        'valign': 'top',
+        'fg_color': '#D7E4BC',
+        'border': 1})
+
+    # Write the column headers with the defined format.
+    for col_num, value in enumerate(statisticalData.columns):
+        worksheet.write(0, col_num, value, header_format)
+        
+        
+    if (corMatrix==True):
+        correlationMatrix.to_excel(writer,sheet_name="CorrMatrix")
+    writer.save()
+    #####################Email Notification###############################################################
+ 
+    try:
+        config_url="http://apvrp20338:3004/sendemail"
+    except:
+        try:
+            config_url="https://sherlock.uhc.com:3054/sendemail"
+        except:
+            print("User don't have access to email API.")
+    
+    from_addr="noreply@uhc.com"
+
+    to_addr=emailTo
+
+
+    body = '''Hi, 
+
+PFA the file having univariate statistics and correlation matrix. 
+
+Kindly let us know in case of any concerns. 
+
+Regards, 
+ARA Team 
+    '''
+
+    subject = "EDD Output " + OutputFileName
+
+    #path_duplicate = "/mapr"+path_temp+"duplicate_Claims_Flags_"+str(scoring_dt)+".csv"
+    #path_duplicate = "/mapr/datalake/uhc/ei/pi_ara/sherlock/development/hdctest/correlationMatrix.csv"
+    
+    #outputpath=os.getcwd()+'/'+OutputFileName+'.xlsx'
+    output=OutputPath+OutputFileName+'.xlsx'
+    requests.post(config_url,json={"from_addr":from_addr,"to_addr":to_addr, "subject":subject, "body":body, "attach_path": output})
+
+    #######################################################################################################################
+    
+    return (statisticalData,correlationMatrix)
+
+
+# In[ ]:
+
+
+def univariatePlots(data,colList,path,OutputFileName,cardinality=20):
+    """
+    This function plot histogram and pareto plots for a given set of columns in a data and returns a pdf of plots.
+
+    Function Arguments:
+    data= Any Pyspark dataframe
+    colList= List of columns tobe plotted.
+    cardinality(default=20)= distinct values in a column below which column will be considered categorical.
+    path= Output Location where plots tobe saved. 
+    OutputFileName= Name you want to give to the output excel file
+    
+    """
+    
+    
+    
+    ## count distinct elements in every column
+    dictd={}
+    numCols=[]
+    catCols=[]
+    for x in colList:
+        #print(x)
+        dictd[x]=data.select(x).distinct().count()
+        
+        if dict(data.dtypes)[x]=="string":
+            data=data.withColumn(x,trim(col(x)))
+            catCols.append(x)
+        else:
+            numCols.append(x)
+            
+    for x in numCols:
+        if dictd[x]< cardinality:  
+            numCols.remove(x)
+            catCols.append(x)
+            data=data.withColumn(x,data[x].cast("string"))
+    
+    if(0.1*(data.count())<100000):
+        SampledData10=data.select(*colList).sample(False,0.1,42)
+        Pdata10=SampledData10.toPandas()
+    else:
+        SampledData10=data.select(*colList).limit(100000)
+        Pdata10=SampledData10.toPandas()
+
+    pdf=PdfPages(path+OutputFileName+"EDA.pdf")
+    
+    for x in numCols:
+        # transform training data & save lambda value 
+        fitted_data, fitted_lambda = boxcox(Pdata10[Pdata10[x]>0][x])
+        plt.rcParams["figure.figsize"]=15,5
+        fig=plt.figure()
+    #     fig.add_subplot(1,3,2)
+    #     plt.hist(a["CLCL_TOT_CHG_Transformed"],bins=30)
+    #     plt.title("Quantiled Transformed Histogram")
+    #     plt.xlabel("CLCL_TOT_CHG")
+        fig.add_subplot(1,2,1)
+        plt.hist(Pdata10[x],bins=30,color='red')
+        plt.xlabel(x)
+        
+        plt.ylabel("Count")
+        plt.title(x)
+        plt.ticklabel_format(style='plain')
+        fig.add_subplot(1,2,2)
+        plt.hist(fitted_data,bins=30,color='green')
+        #plt.title("BoxCox Transformed Histogram at lambda" + fitted_lambda)
+        plt.title("BoxCox Transformed Histogram at lambda "+str(round(fitted_lambda,2)))
+        
+        plt.xlabel(x)
+        #plt.show()
+        pdf.savefig(fig)
+    
+    for x in catCols:
+        df1=pd.DataFrame(Pdata10[x].value_counts()).reset_index()
+        #plt.rcParams["figure.figsize"]=15,5
+        df1['pareto'] = 100 *df1[x].cumsum() / df1[x].sum()
+        #xvals = range(len(df1))
+        fig2, axes = plt.subplots()
+        ax1 = df1.plot('index', y=x ,  kind='bar', ax=axes)
+        #ax1.set_xlim([min(xvals) - 0.5, max(xvals) + 0.5])
+        ####Change label according to column name
+        ax1.set_title("Pareto plot for Column " + x)
+        ax2 = df1.plot('index', y='pareto', marker='D', kind='line', ax=axes, secondary_y=True,color='red')
+        ax1.set_xlabel(x)
+        ax1.set_ylabel("Count")
+        ax2.set_ylim([0,110])
+        ax2.legend(['Cumulative Percentage'],bbox_to_anchor=(1.02,1.15))
+        ax1.get_legend().remove()
+        pdf.savefig(fig2)
+    print("Code ran Successfully.")
+    print("Please check your output File at your specified Location.")
+    pdf.close()
+
+
+# In[ ]:
+
+
+
+
